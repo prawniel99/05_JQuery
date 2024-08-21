@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+
+    <script>
+        const arr = [];
+        proc1 = () => {
+            while(true) {
+                // let inp = prompt("input anything").trim();
+                let inp = prompt("input anything");
+                if(inp!=null) inp=inp.trim();
+
+                if(inp==null || inp.length<1 || inp=="") break;
+
+                // insert into the array
+                arr.push(inp);
+            }
+
+            // print
+            str = arr;
+            document.getElementById('result1').innerHTML = str;
+        }
+
+        proc2 = () => {
+            // 12, 34, 56, 78, 34, 12, 99
+            const suArr = [];
+            let i = 1;
+            while(true) {
+                // input
+                let input = prompt("수"+i+"입력");
+                
+                // check the existency of input value - suArr.indexOf(value)
+                let idx = suArr.indexOf(input);
+                // if(idx<0) {
+                //     suArr.push(input);
+                // }
+
+                // es7에서 새로운 메소드 - includes - true/false
+                // if(!suArr.includes(input)){
+                //     suArr.push(input);
+                // }
+                
+                // 한개씩 입력할때는 suArr[1] = input
+                if(!suArr.includes(input)){
+                    suArr[suArr.length] = input;
+                }
+
+                /* 여러개 넣을때는 push, 하나 넣을때는 대입하는게 좋음 */
+                
+                if(suArr.length>=5) break;
+                // suArr length comparison - break;
+                i++;
+            }
+            document.getElementById('result2').innerHTML = suArr;
+            // print out suArr on #result2
+        }
+        
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h3>Q1. Prompt()를 이용하여 이름을 계속 입력 받아 배열에 저장하고 출력하는 프로그램을 작성하시오.<br>
+        입력의 마지막은 공백 문자를 입력하거나 "취소" 버튼을 눌렀을 때(null)로 한다.</h3>
+        <input type="button" value="confirm" onclick="proc1()">
+        <br><br>
+        <div id="result1"></div>
+    </div>
+
+    <div class="box">
+        <h3>Q2. 서로 중복되지 않은 정수 5개를 입력 받아 출력하는 프로그램</h3>
+        <input type="button" value="confirm" onclick="proc2()">
+        <br><br>
+        <div id="result2"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input[type=button]:hover {
+            box-shadow: 100px 100px 0px 100px skyblue;
+        }
+        div[id=result1] {
+            border: 1px dotted red;
+            margin: 10px;
+            padding: 10px;
+            font-size: 1.3rem;
+        }
+    </style>
+    
+    <script>
+        class Person { // 이렇게 클래스 쓰는거 프로젝트에서 아무도 안쓴다고 함 ㅋㅋ
+            // constructor(obj) { // obj로 받는다는건 p1 = new Person 이런식으로 받는다는 것.
+            //     this.name = obj.name;
+            //     this.age = obj.age;
+            // }
+            // 구조분해 해서 만들어보자
+            constructor({name, age}) { // 이렇게 구조분해
+                this.name = name;
+                this.age = age;
+            }
+            // 나이의 합 구하기
+            // static ==> new로 안하고, 클래스에 바로 접근한다
+            // ...people ==> 나머지 매개변수. 정해지지 않은 매개변수의 수를
+            //               배열로 받아서 처리한다.
+            static st_sumAge(...people) { // Person의 객체를 받는다.
+
+                let sum = 0;
+                for(let i=0; i<people.length; i++) {
+                    sum += people[i].age;
+                }
+                console.log("1---", sum);
+
+                sum = 0;
+                people.forEach(obj => { // parameter 한개일땐 괄호 없어도 됨. (obj, str) => 이런식.
+                    sum += obj.age;
+                })
+                console.log("2---", sum);
+                
+                // 구조분해
+                sum = 0;
+                people.forEach(({age}) => { // 이거 age를 {}안에 안넣으면 value가 나오지 않고, [object]가 나옴.
+                    sum += age;
+                })
+                console.log("3---", sum);
+
+                document.getElementById('result1').innerHTML = sum;
+            }
+        }
+        
+        proc1 = () => {
+            // Person 객체 생성
+            const p1 = new Person({name:'변하민', age:100});
+            const p2 = new Person({name:'최서혜', age:100});
+            const p3 = new Person({name:'고영희', age:66});
+
+            Person.st_sumAge(p1,p2,p3);
+
+            console.log(typeof Person);
+
+            // javascript의 array
+            arr = new Array();
+            arr[0] = 0;
+            arr[1] = 7;
+            arr[5] = 15;
+            arr[25] = 1535;
+            console.log(arr[5]);
+            console.log(arr[25]);
+
+
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="confirm" onclick="proc1()">
+    <div id="result1"></div>
+</body>
+</html>

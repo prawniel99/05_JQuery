@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<link rel="stylesheet" href="../css/public.css">
+    
+    <script src="../js/jquery-3.7.1.js"></script>
+
+	<script>
+		proc1 = () => {
+			// $('h1') 이렇게 간단하게 h1 선택할 수 있음
+			// 원래는 document.getElementsByTagName('h1') 이렇게 했었음
+
+			// vh: jquery 객체변수
+			// 이렇게 간단하게 가능
+			// vh = $('h1');
+			// vh.css('color', 'red');
+
+			// vh: dom 객체 변수
+			// 아래는 에러 방식.
+			// // let svh = document.getElementsByTagName('h1');
+			// // vh.style.color = 'blue';
+			// // svh[0].style.color = 'blue';
+			
+			// vh: jqeury 객체변수
+			let jvh = $('h1');
+			jvh.css('color', 'red');
+			jvh.eq(2).css('color', 'green');
+
+			let svh = document.getElementsByTagName('h1');
+			// vh.style.color = 'blue';
+			svh[1].style.color = 'blue'; // 선생님은 [0] 하면 되는데 나는 왜 1 해야함?
+			// for(i=0; i<svh.length; i++) {
+			// 	svh[i].style.color = 'blue';
+			//
+		}
+	</script>
+
+</head>
+<body>
+    <div class="box">
+        <h1>
+
+        </h1>
+        <input type="button" value="confirm" onclick="proc1()">
+        <div id="result1"><h1>무궁화 꽃이 피었습니다</h1>
+        	<h1>무궁화 꽃이 피었습니다</h1>
+        	<h1>무궁화 꽃이 피었습니다</h1>
+        	<h1>무궁화 꽃이 피었습니다</h1>
+        	<h1>무궁화 꽃이 피었습니다</h1>
+        	<h1>무궁화 꽃이 피었습니다</h1>
+        	<h1>무궁화 꽃이 피었습니다</h1>
+        	<h1>무궁화 꽃이 피었습니다</h1>
+        	<h1>무궁화 꽃이 피었습니다</h1>
+        	<h1>무궁화 꽃이 피었습니다</h1>
+        	<h1>무궁화 꽃이 피었습니다</h1>
+        	<h1>무궁화 꽃이 피었습니다</h1>
+        </div>
+        
+        
+    </div>
+</body>
+</html>

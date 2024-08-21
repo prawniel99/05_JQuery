@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>아이프레임 이미지</title>
+		
+		<link rel="stylesheet" href="../css/public.css">
+		
+		<style>
+			iframe {
+				width: 550px;
+				height: 550px;
+				border: 6px solid grey;
+			}
+			
+			#btnimg {
+				width: 75%;
+				height: 100px;
+			}
+		</style>
+		
+	</head>
+
+	<script type="text/javascript">
+		// 함수정의
+		function changeImage() {
+			// id=ifr를 이용해서 iframe 요소를 찾는다
+			vifr = document.getElementById('ifr');
+			
+			// iframe 파일의 docuiment 객체로 접근
+			vifrDoc = vifr.contentDocument;
+			
+			// iframe파일인 이미지파일.html의 imag 요소를 변경
+			vimg = vifrDoc.getElementById('img1');
+			
+	 		// window.alert(vimg);
+	 		// 따옴표 쌍따옴표 구분 안하네..?
+	 		
+	 		// img의 src 속성을 변경해서 이미지를 변경
+	 		
+	 		// img의 src 속성값을 가져온다
+	 		vsrc = vimg.getAttribute('src');
+	 		
+	 		// 왼쪽에 = 앞에 있는건 다 변수 이름 임의로 지정한거다
+	 		// 현재 cat-jump 라는 매칭된 글자가 있는지 비교 (확장자 .png 같은거 제외)
+	 		// 해당 글자 있으면 그 글자 return, 없으면 null 리턴.
+	 		math = vsrc.match('cat-jump');
+	 		
+	 		// window.alert(math);
+	 		// window.alert는 확인을 위해 쓰는거지, 남발하면 흐름 끊으니까 지양
+	 		
+	 		// 비교
+	 		if(math!=null) {
+	 			// 다른 그림으로 변경
+	 			vimg.setAttribute('src', '../images/사자.jpg');
+	 		} else {
+	 			// 고양이로 다시 변경
+	 			vimg.setAttribute('src', '../images/cat-jump.png');
+	 		}
+		}
+	</script>
+	
+	<body>
+		<pre>
+		                            요소 찾기
+		
+			요소의 속성(attribute)값 가져오기 (java의 get) - getAttribute('속성이름')
+			요소의 속성(attribute)값 설정하기 (java의 set) - setAttribute('속성이름')
+			
+			이미지변경버튼에 대한 클릭 이벤트(이벤트 핸들러)를 설정 - javascript를 이용한다
+			onclick="함수이름(매개변수값)" --- javascript의 함수이름을 호출한다;
+		</pre>
+		
+		<input type="button" id="btnimg" value="이미지변경" onclick="changeImage()">
+		
+		<br>
+			
+		<br>
+		
+		<iframe src="10.이미지파일.html" name="ifr" id="ifr" title="이미지"></iframe>
+		
+		<div>
+			div로 글을 쓰면
+		</div>
+		<div>
+			블록 수준이니까 줄이 바뀌나? 바뀌네
+		</div>
+	</body>
+</html>

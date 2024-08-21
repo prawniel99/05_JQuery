@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            height: 100px;
+            margin: 5px;
+            padding: 5px;
+            border: 2px solid grey;
+            background-image: linear-gradient(to right, skyblue, lightyellow, rgb(255, 228, 233));
+        }
+    </style>
+</style>
+
+    <script>
+        const myCar = {
+            make: "Bugatti",
+            model: "Divo",
+            year: 2020
+        }
+
+        const printStr = (res) => { // str을 전역변수로 했기 때문에 (res, str) 로 안해도 되고,
+            document.querySelector(res).innerHTML = str; // 동일 이유로, innerHTML = out 이런거 안하고 = str 하면 됨.
+        }
+
+        proc1 = () => {
+            // 일부분만 가져오기(make, model)
+            // const aa = myCar.make;
+            // const bb = myCar.model;
+            const{make, model} = myCar;
+            console.log(make, model);
+
+            str = "make와 model만 <br>"; // let 빼면 전역변수, proc1 위(밖)에서 let str 하면 전역변수.
+            str += `${make} ${model}`;
+            // document.querySelector('#result1').innerHTML = str;
+            // 호출: 바로 출력 말고 위에 하나 불러서 출력해보자
+            printStr('#result1', str);
+        }
+
+        proc2 = () => {
+            // 일부분만 가져오기(year) 이걸 구조분해 할당이라고 한다.
+            const{year} = myCar;
+            console.log(year);
+            str = "year만 <br>";
+            str += year;
+            printStr('#result2', str);
+        }
+
+        proc3 = () => {
+            // model, year 가져오기. 펼침연산자 사용하기.
+            // const{model, year} = myCar;
+            // str = 'model과 year <br>';
+            // str += `${model} ${year}`;
+            // printStr('#result3', str);
+            const {make, ...rest} = myCar;
+            // ...rest의 결과는 리터럴 객체
+            // make의 값: bugatti
+            // ...rest는 {model: 'Bugatti', year: 2020} 이렇게 나옴.
+            str = "";
+            for(rr in rest) { // rr의 속성이름
+                console.log(rr);
+                str += `myCar[${rr}] -> ${myCar[rr]} <br>`;
+            }
+            printStr('#result3');
+        }
+
+        const users = [
+            {name: "철수", age: 25},
+            {name: "영희", age: 30}
+        ]
+
+        proc4 = () => {
+            str = "";
+            // users.forEach(function(user, index) {
+            //     console.log(user.name. user.age);
+            // })
+            // users.forEach(({name, age}, index) => { // 이게 구조분해
+            //     console.log(name, age);
+            // })
+            // for(const user of users) {
+            //     console.log(user.name, user.age);
+            // }
+            for(const {name, age} of users) {
+                console.log(name, age);
+                str += `${name} ${age} <br>`;
+            }
+            printStr('#result4');
+        }
+
+        proc5 = () => {
+            userProc(users);
+        }
+
+        function userProc(persons) { // persons: users를 넘겨받은 배열객체
+            str = "";
+            // persons.forEach(() => { // 구조분해 할당 안한거
+            //     console.log(people.name, people.age)
+            // })
+            // persons.forEach(({name, age}) => { // 구조분해 할당 한 거
+            //     console.log(name, age)
+            // })
+            for(const{name, age} of persons) {
+                console.log(name, age);
+                str += `${name} ${age} <br>`;
+
+            }
+            printStr('#result5');
+        }
+    </script>
+</head>
+
+<body>
+    <h2>1. 일부분만 분해 할당 - make, model</h2>
+    <input type="button" value="1번" onclick="proc1()">
+    <br><br>
+    <div id="result1"></div>
+    
+    <h2>2. 일부분만 분해 할당 - year</h2>
+    <input type="button" value="2번" onclick="proc2()">
+    <br><br>
+    <div id="result2"></div>
+    
+    <h2>3. 일부분만 model.year const{make, ...rest} = myCar;</h3>
+    <input type="button" value="3번" onclick="proc3()">
+    <br><br>
+    <div id="result3"></div>
+    
+    <h2>4. 반복문에서의 구조분해</h4>
+    <input type="button" value="4번" onclick="proc4()">
+    <br><br>
+    <div id="result4"></div>
+    
+    <h3>5. 함수의 매개변수로 전달된 객체의 구조분해</h3>
+    <input type="button" value="5번" onclick="proc5()">
+    <br><br>
+    <div id="result5"></div>
+</body>
+</html>

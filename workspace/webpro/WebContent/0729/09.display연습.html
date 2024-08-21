@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+          border: 2px dotted red;
+          width: 80%;
+          height: 100px;
+          margin: 10px;
+          display: none;
+        }
+        #d2 {
+          /* position: static; */
+          /* position: relative; */
+          /* position: absolute; */
+          position: fixed;
+          font-size: 20px;
+          padding: 50px;
+          margin: 50px;
+        }
+        #d3 {
+          padding: 90px;
+        }
+    </style>
+
+    <script>
+      function proc1() {
+        // id=d1인 요소 접근
+        let vdiv = document.getElementById('d1');
+        // var vdiv = document.querySelector('#d1');
+
+        // 요소의 style을 변경 - displa
+        vdiv.style.display = 'block';
+
+      }
+    </script>
+</head>
+
+<body>
+  <input type="button" value="확인" onclick="proc1()">
+  <div id="d1">Hello</div>
+  <div id="d2">abcdefghijklmnop<br>abcdefghijklmnop<br>abcdefghijklmnop<br>abcdefghijklmnop<br>abcdefghijklmnop<br>abcdefghijklmnop<br></div>
+  <div id="d3">asdfasdf<br>asdfasdf<br>asdfasdf<br>asdfasdf<br>asdfasdf<br>asdfasdf<br>asdfasdf<br>asdfasdf<br>asdfasdf<br>asdfasdf<br></div>
+</body>
+</html>

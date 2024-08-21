@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+body {
+	background-color: black;
+	color: rgb(233, 233, 233);
+	/* background: url(../images/fhd-sky.jpg); */
+}
+
+pre {
+	text-align: left;
+	font-weight: bold;
+	border-left: none;
+	border-right: none;
+	border-top: 11px double rgba(120,20,20,1);
+	border-bottom: 11px double rgba(120,20,20,1);
+	background: rgb(222,222,222);
+}
+
+h3 {
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.box {
+	border: none;
+	/* background-image: linear-gradient(rgba(255,155,155), rgba(155,255,155)); */
+	background-color: rgb(88, 88, 88);
+	margin: 10px;
+	padding: 10px;
+}
+
+.box input[type=button] {
+	/* margin: 12px 4px 0; */
+	background: rgb(40,40,40);
+	color: rgb(233, 233, 233);
+	font-size: 10px;
+	padding: 0;
+	width: 60px;
+	height: 26px;
+	border-radius: 10px;
+}
+
+.box div {
+	border: 2px dotted grey;
+	padding: 10px;
+	margin: 5px;
+}

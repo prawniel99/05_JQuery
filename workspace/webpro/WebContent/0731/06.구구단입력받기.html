@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = function() {
+            let gugu = parseInt(window.prompt("구구단을 외자", "몇단?"));
+            // 문자열의 첫글자가 숫자이고 그 이후 숫자가 아닌 다른게 올 경우
+            // 숫자 이후의 값은 무시되고 숫자만 정수로 변환
+            // 첫글자가 문자이면 NaN(Not a Number)
+            // let gugu = window.prompt("구구단을 외자", "몇단?");
+            let str = "";
+            for(let i=1; i<=39; i++) {
+                str += gugu+" * "+i+" = "+(gugu*i)+"<br>";
+            }
+            document.querySelector('#result').innerHTML = str;
+        }
+
+        function proc1() {
+            let gugu = 5;
+            let str = "";
+            for(let i=1; i<=39; i++) {
+                str += gugu+" * "+i+" = "+(gugu*i)+"<br>";
+            }
+            document.querySelector('#result').innerHTML = str;
+        }
+    </script>
+</head>
+<body>
+    <div id="result"></div>
+    <input type="button" value="입력" onclick="proc1()">
+</body>
+</html>

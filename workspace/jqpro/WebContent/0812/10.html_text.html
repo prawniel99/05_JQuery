@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+    
+
+
+    <script>
+    	$(function() {
+            $('#html').on('click', function() {
+                alert( $('body').html() ); // body태그에 있는 모든 html 가져와라
+            })
+            $('#text').on('click', function() {
+                alert( $('body').text() ); // body태그에 있는 모든 html 가져와라
+            })
+
+            // script 방식
+            /* document.getElementById('phtml').addEventListener('click', function() {
+                $('p').html()
+                document.getElementsByTagName('p')[0].innerHTML;
+            }) */
+            // jquery 방식
+            $('#phtml').on('click', function() {
+                // 첫번째 p 하나만
+                // alert($('p').html());
+                // document.getElementsByTagName('p')[0].innerHTML; // 한 줄 안에서는 안되지만, 이런 방식으로는 jquery랑 script랑 혼용가능
+
+                // 모든 p태그의 내용 가져오기. 반복문으로 전체 대상 가져오기.
+                $('p').each(function(i, a) {
+                    alert($(this).html());
+                    // $('p[a]')
+                    // $(`p[${a}]`) // 이거 많이 씀
+                    // $(b) // 이것도 많이 씀
+                    // 돌고 있는 애를 this로 할 수도 있다.
+                    // 이게 다 DOM변수. DOM...
+                    // $ 붙이면 jqeury가 됨.
+                })
+            })
+            $('#ptext').on('click', function() {
+                alert($('p').text());
+            })
+        })
+
+
+    </script>
+
+    
+
+</head>
+
+
+
+<body>
+
+
+
+    <div class="box">
+        <h1>
+        	1. $('body').html(): 모든 태그와 내용<br>
+            &nbsp;$('body').text(): 모든 내용만, 태그 포함 X<br>
+        </h1>
+        <input type="button" value="html" id="html">
+        <input type="button" value="text" id="text">
+        <div id="result1"></div>
+    </div>
+
+
+
+    <div class="box">
+        <h1>
+        	2. $('p').html(): 첫번째 p태그를 대상으로 내용 가져오기 - 태그 포함<br>
+            text(): 모든 p태그를 대상으로 내용 가져오기 - 태그 포함하지 않음<br>
+        </h1>
+        <input type="button" value="phtml" id="phtml">
+        <input type="button" value="ptext" id="ptext">
+        <div id="result2">
+            <p>1<span>홍길동</span></p>
+            <p>2<span>진달래</span></p>
+            <p>3<span>무궁화</span></p>
+        </div>
+    </div>
+
+
+
+</body>
+
+
+
+</html>

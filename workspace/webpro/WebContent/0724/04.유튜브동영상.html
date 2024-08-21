@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<style>
+			img {
+				width: 200px;
+			}
+			
+			iframe {
+				width: 75%;
+				height: 500px;
+			}
+		</style>
+		
+		<script>
+			function playShow(videoId) {
+				// iframe id=promotion_video인 요소로 접근
+				var vurl = "https://www.youtube.com/embed/"+videoId;
+				
+				// iframe id=promotion_video인 요소를 접근 검색
+				var ivideo = document.getElementById('promotion_video');
+				
+				// iframe의 src의 값을 동영상 주소로 설정한다
+				ivideo.setAttribute('src',  vurl);
+			}
+		</script>
+	</head>
+	<body>
+		<p>img 클릭하면 iframe의 동영상을 실행</p>
+		<img src="../images/itzy.jpg" alt="../images/itzy.jpg"
+				onclick="playShow('pccskexpmIE?si=CAeJ2-NX8a2xyv8R&autoplay=1&mute=1&t=84')">
+		<img src="../images/lol.png" alt="../images/lol.png"
+				onclick="playShow('vOMZtrbeSm8?si=yrFb5NMnctHdD1sT&autoplay=1&mute=1')">
+		
+		<br><br>
+		
+		<iframe id="promotion_video"></iframe>
+	</body>
+</html>
+
+
+
+

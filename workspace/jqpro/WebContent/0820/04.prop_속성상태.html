@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <style>
+        
+    </style>
+
+    <script>
+        $(()=>{
+            $('#btn1').on('click', function(){
+                // 현재 상태 가져오기
+                chk = $('#checkTest').prop('checked'); // 여기 안에 어떤거 넣을 수 있는데?
+                sel = $('#selTest option').eq(2).prop('selected');
+                txt = $('#txtTest').prop('readonly');
+                dis = $('#runBtn').prop('disabled');
+                console.log(chk, sel, txt, dis);
+
+                // 반대로 설정
+                // if(chk) $('#checkTest').prop('checked', false);
+                // else $('#checkTest').prop('checked', true);
+
+                // if(sel) $('#selTest option').eq(2).prop('selected', false);
+                // else $('#selTest option').eq(2).prop('selected', true);
+
+                // if(txt) $('#txtTest').prop('readonly', false);
+                // else $('#txtTest').prop('readonly', true);
+
+                // if(dis) $('#runBtn').prop('disabled', false);
+                // else $('#runBtn').prop('disabled', true);
+
+                // 반대로 설정 짧게 만들기
+                $('#checkTest').prop('checked', !chk); // chk가 prop이 checked 인거니까, 뭔 소리여?
+                $('#selTest option').eq(2).prop('selected', !sel);
+                $('#txtTest').prop('readonly', !txt);
+                $('#runBtn').prop('disabled', !dis);
+                // 엥 왜 이렇게 됨?
+                // 위에 현재 상태 가져오기로 가져오고 나서, 아래에서 반대로 바꾼다? 뭐가 반대로 바꾸긴데
+            })
+
+
+
+
+
+
+            $('#all').on('change', function(){
+                // all의 현재 상태 값을 가져온다 - checked
+                chk = $('#all').prop('checked'); // #all 말고 this로 해도 됨.
+                // chk는 뭐냐면 id가all인 것의 property가 선택된 상태일때 true? 음..?
+                // all의 현재 값을 가져온다? 음?
+
+                // class = item의 상태값을 chk값으로 설정한다.
+                $('.item').prop('checked', chk);
+            })
+
+
+            
+            
+            
+            
+            
+        })
+
+
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 버튼 클릭시 각 요소들의 현재 상태값을 가져온다<br>
+            2. 버튼 클릭시마다 각 요소들의 상태값을 반대인 상태로 변경
+        </h1>
+
+        <input type="button" value="confirm" id="btn1">
+
+        <div id="result1">
+
+            <form>
+                체크박스(라디오버튼): <input type="checkbox" id="checkTest" checked><br><br>
+                리스트박스(select객체): 
+                <select id="selTest">
+                    <option value="1">하나</option> 
+                    <option value="2">둘</option>
+                    <option value="3" selected >셋</option> 
+                    <option value="4">넷</option>
+                </select><br><br>
+                text객체(readonly): <input type="text" value="가나다" id="txtTest"><br><br>
+                button객체(disabled): <input type="button" value="실행" id="runBtn" onclick="alert('hello~')">
+            </form>
+            
+        </div>
+    </div>
+
+    <div class="box">
+        <h1>
+        	1. 전체선택의 상태 값으로 하면 1~5까지의 요소의 상태를 설정<br>
+        </h1>
+
+        <input type="button" value="confirm" id="btn1">
+
+        <div id="result1">
+            <input type="checkbox" id="all" value="전체선택">전체선택<br><br>
+            <input type="checkbox" class="item" value="1">1
+            <input type="checkbox" class="item" value="2">2
+            <input type="checkbox" class="item" value="3">3
+            <input type="checkbox" class="item" value="4">4
+            <input type="checkbox" class="item" value="5">5
+
+        </div>
+    </div>
+
+</body>
+
+</html>

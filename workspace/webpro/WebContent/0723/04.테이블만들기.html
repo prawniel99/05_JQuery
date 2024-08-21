@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>테이블 만들기</title>
+		<style>
+			h1 {
+				text-align: center;
+			}
+			
+			table {
+				border: 50px inset rgba(20,20,20,0.5);
+				margin-left: auto;
+				margin-right: auto;
+				margin: 50px;
+				border-collapse: collapse;
+				margin-left: 100px;
+				margin: 40px auto;
+			}
+			
+			td {
+				width: 400px;
+				height: 50px;
+				border: 2px dashed rgba(30,30,30,0.5);
+				font-size: 1.2rem;
+				text-align: center;
+			}
+			
+			th {
+				height: 50px;
+				background: lightblue;
+				font-size: 1.5rem;
+				border-bottom: 5px double yellow;
+			}
+			
+			table#tab2 {
+				border: 2px double red;
+				border-collapse: separate;
+				border-spacing: 15px;
+			}
+			
+			table#tab2 td {
+				/* border: 5px double rgba(80,60,40,0.7); */
+				border-left: none;
+				border-right: none;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>테이블 만들기</h1>
+		<table border="1" id="tab1">
+			<tr>
+				<td style="font-size:20px">이름</td>
+				<td>주소</td>
+				<td>전화번호</td>
+			</tr>
+			
+			<tr>
+				<td>홍길동</td>
+				<td>대전</td>
+				<td>010-1111-2222</td>
+			</tr>
+			
+			<tr>
+				<td>개나리</td>
+				<td>서울</td>
+				<td>010-3333-4444</td>
+			</tr>
+			
+			<tr>
+				<td>진달래</td>
+				<td>부산</td>
+				<td>010-5555-6666</td>
+			</tr>
+		</table>
+		
+		<table border="1" id="tab2">
+			<tr>
+				<th>이름</th>
+				<th>주소</th>
+				<th>전화번호</th>
+			</tr>
+			
+			<tr>
+				<td>홍길동</td>
+				<td>대전</td>
+				<td>010-1111-2222</td>
+			</tr>
+			
+			<tr>
+				<td>개나리</td>
+				<td>서울</td>
+				<td>010-3333-4444</td>
+			</tr>
+			
+			<tr>
+				<td>진달래</td>
+				<td>부산</td>
+				<td>010-5555-6666</td>
+			</tr>
+		</table>
+		asdf
+	</body>
+</html>

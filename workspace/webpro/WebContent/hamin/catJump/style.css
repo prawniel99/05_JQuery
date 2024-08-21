@@ -1,0 +1,98 @@
+body {
+    /* display: block; */
+    /* display: inline; */
+    /* display: inline-block; */
+    /* display: none; */
+    display: grid;
+    /* display: flex; */ /* 원래거 */
+    /* display: list-item; */
+    /* display: table; */
+    /* display: table-row; */
+    /* display: table-cell; */
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.game {
+    position: relative;
+    width: 1000px;
+    height: 400px;
+	align-content: center;
+    background-color: #fff;
+    border: 5px solid #000;
+    overflow: hidden;
+}
+
+.character {
+    /* position: static; */
+    /* position: relative; */
+    position: absolute; /*원래거*/
+    /* position: fixed; */
+    /* position: sticky; */
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('images/cat_lay.png') no-repeat center center;
+    background-size: contain;
+    transition: bottom 0.1s;
+}
+
+.character.jump {
+	width: 400px;
+	height: 400px;
+	background: url('images/character.png') no-repeat center center;
+    animation: jump 0.5s linear;
+}
+
+@keyframes jump {
+    0% { bottom: 0; }
+	50% { bottom: 200px; }
+    100% { bottom: 0; }
+}
+
+.obstacle {
+    /*position: absolute;*/
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 30px;
+    background-color: red;
+    animation: moveObstacle 2s infinite linear, liftObstacle 2s infinite linear;
+}
+
+@keyframes moveObstacle {
+    0% { right: 0; }
+    100% { right: 1000px; }
+}
+
+@keyframes liftObstacle {
+	0% { bottom: 0; }
+	100% { bottom: 385px; }
+}
+
+.shake {
+	position: relative;
+	background-color: #888888;
+	left: 0;
+	bottom: 0;
+	/* animation: shakeShake 0.5s infinite linear; */
+	transition: bottom 0.1s;
+}
+
+@keyframes shakeShake {
+	0% { left: 0; bottom: 0; }
+	10% { bottom: 2px; }
+	20% { left: 10px; }
+	30% { bottom: 5px; }
+	40% { left: 7px; }
+	70% { bottom: 11px; }
+	60% { left: 14px; }
+	80% { bottom: 19px; }
+	80% { left: 8px; }
+	100% { bottom: 0; }
+	100% { left: 0; }
+}

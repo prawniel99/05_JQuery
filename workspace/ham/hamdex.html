@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.7.1.js"></script>
+
+    <style>
+        
+    </style>
+
+    <script>
+        let proverbs = ['힘내', '츄베릅', '오늘도 힘차게',
+                        '네가 최고야', '넌 예뻐', '아자아자',
+                        'You can do everything', 'You are doing great', 'I believe in you'];
+        
+        lightonoffstatus = 0;
+        texthowmanyprinted = 0;
+        
+        const onoff = () => {
+            texthowmanyprinted++;
+            if(lightonoffstatus==0) {
+                let ran = parseInt(Math.random()*9);
+                console.log(ran);
+                document.getElementById('light1').src = 'media/lightbox-on.png';
+                document.getElementById('textbox').innerHTML = proverbs[ran];
+                lightonoffstatus = 1;
+            } else {
+                document.getElementById('light1').src = 'media/lightbox-off.png';
+                document.getElementById('textbox').innerHTML = `<p></p>`;
+                lightonoffstatus = 0;
+            }
+            // texts();
+        }
+
+        // function texts(){
+        //     document.getElementById('textbox').innerHTML = `<p>click ${texthowmanyprinted}</p>`;
+        // }
+    </script>
+
+</head>
+
+<body>
+
+
+    <div class="wrapper">
+        <!-- <img src='media/lightbox-off.png' alt="lightbox-off.png" id="light1" class="" title="hover" onclick="onoff()"> -->
+        <img src='media/lightbox-off.png' alt="lightbox-off.png" id="light1" class="" title="띵" onmouseenter="onoff()" onmouseleave="onoff()">
+        <div id="textbox"></div>
+    </div>
+
+
+</body>
+
+</html>

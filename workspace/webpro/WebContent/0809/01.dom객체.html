@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+
+    <style>
+
+
+        img {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+        }
+        
+
+
+    </style>
+
+    <script>
+        const proc1 = () => {
+
+            let vua = document.getElementById('ua');
+            // let list = vua.getElementsByTagName('li'); // HTMLCollection가 나온다 froEach 못씀
+            let list = vua.querySelectorAll('li'); // NodeList가 나온다 forEach 가능
+            // 잘 안쓰는 childNodes 한번 해보자.
+            // let list = vua.childNodes;
+            // getElement, querySelector 쓰던가 children도 쓸 수 있음.
+            // let list = vua.children;
+
+            console.log(list);
+
+            let str = "";
+            for(a of list) {
+                // str += a.firstChild; // 이렇게 하면 Object만 나옴. 값 안나옴.
+                // vua.querySelectorAll 할때 사용할 것. children도 사용 가능.
+                str += a.firstChild.data+"<br>";
+                // child 할때 사용. 근데 null도 같이 뜸.
+                // str += a.firstChild+"<br>";
+                // console.log(str);
+            } // node, collection 둘 다 사용 가능
+
+            // HTML Collection에서는 사용 불가
+            // list.forEach(a=>{
+            //     str += a.firstChild.data+"<br>";
+            // }) // 이거는 node 만 가능. getelement 이거 collection 방식으로는 안됨.
+            // // node는 유사 컬렉션
+
+            // 헷갈리면 for of 하던가 그냥 원래 for문 쓰던가
+            document.getElementById('result1').innerHTML = str;
+            
+        }
+
+
+
+
+
+
+
+        proc2 = () => {
+
+
+            let vub = document.getElementById('ub');
+
+
+            let list = vub.querySelectorAll('li');
+
+            for(n of list) {
+                vdata = n.firstChild.data;
+                console.log(vdata);
+
+                vimg = document.createElement('img');
+                vimg.src = "../images/"+vdata;
+                vimg.alt = vdata;
+
+                // 생성된 img를 부모에 추가 - 부모:i -> n
+                n.appendChild(vimg)
+
+                
+            }
+
+
+        }
+
+
+
+
+
+
+        proc3 = (target) => { // target은 li를 클릭할 때 this를 받은 매개변수
+        vdata = target.firstChild.data;
+
+        vimg = document.createElement('img');
+        vimg.src = "../images/"+vdata;
+        vimg.alt = vdata;
+
+        target.appendChild(vimg);
+        }
+
+
+
+
+        function fnLiImg() {
+            vdata = this.firstChild.data;
+
+            vimg = document.createElement('img');
+            vimg.src = "../images/"+vdata;
+            vimg.alt = vdata;
+
+            this.appendChild(vimg);
+        }
+
+        window.onload = () => {
+            // vud = document.getElementById('ud');
+            // list = vud.getElementById('li');
+
+            // 위 두 문장을 querySelector은 한번에 가능
+            list = document.querySelectorAll('#ud li');
+
+            for(a of list) {
+                // 함수 바로 만들려면 여기 this 안에 코딩하기
+                // a.addEventListener('click', function(){this})
+
+                // 별도 함수 만들어서 하려면 이렇게
+                a.addEventListener('clic', fnLiImg); 
+            }
+            
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+
+
+
+<body>
+    
+
+
+    <div class="box">
+        <h3>
+            1. 
+        </h3>
+
+        <ul id="ua">
+            <li>List itme1</li>
+            <li>List itme2</li>
+            <li>List itme3</li>
+            <li>List itme4</li>
+            <li>List itme5</li>
+        </ul>
+
+        <input type="button" value="CONFIRM" onclick="proc1()">
+        <div id="result1"></div>
+    </div>
+    
+
+
+
+
+    
+    <div class="box">
+        <h3>
+            2. li의 data값을 가져와서 img태그를 만들어서 추가한다
+        </h3>
+
+        <ul id="ub">
+            <li>cat-jump.png</li>
+            <li>무지게5.png</li>
+            <li>국화3.jpg</li>
+            <li>가구1.jpg</li>
+            <li>단풍.jpg</li>
+        </ul>
+
+        <input type="button" value="CONFIRM" onclick="proc2()">
+        <div id="result2"></div>
+    </div>
+    
+    
+
+
+
+
+
+
+    <div class="box">
+        <h3>
+            3. &lt;li onclick="proc3(this)">&lt;/li>
+            각 요소마다 onlick 이벤트 롤 설정
+        </h3>
+
+
+        <ul id="uc">
+            <li onclick="proc3(this)">cat-jump.png</li>
+            <li onclick="proc3(this)">무지게5.png</li>
+            <li onclick="proc3(this)">국화3.jpg</li>
+            <li onclick="proc3(this)">가구1.jpg</li>
+            <li onclick="proc3(this)">단풍.jpg</li>
+        </ul>
+        
+
+        <input type="button" value="CONFIRM" onclick="proc3()">
+        <div id="result3"></div>
+    </div>
+
+
+
+
+
+
+    <div class="box">
+        <h3>
+            4. addEventListener() - 이벤트 설정<br>
+        </h3>
+
+
+        <ul id="ud">
+            <li onclick="proc3(this)">cat-jump.png</li>
+            <li onclick="proc3(this)">무지게5.png</li>
+            <li onclick="proc3(this)">국화3.jpg</li>
+            <li onclick="proc3(this)">가구1.jpg</li>
+            <li onclick="proc3(this)">단풍.jpg</li>
+        </ul>
+        
+
+        <input type="button" value="CONFIRM" onclick="proc3()">
+        <div id="result3"></div>
+    </div>
+    
+        
+
+</body>
+</html>

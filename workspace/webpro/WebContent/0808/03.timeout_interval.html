@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+
+    <style>
+        #result1 {
+            background: yellow;
+        }
+    </style>
+
+    <script>
+        proc1 = () => {
+            // 0.5초 후에 id가 result1인 요소의 배경색을 변경한다
+            let res1 = document.getElementById('result1');
+
+            // window.setTimeout(function(){}, 500); 이렇게 500밀리초에 한번씩 함수 실행
+            window.setTimeout(function(){
+                res1.style.background = "red";
+            }, 500);
+        }
+
+        proc2 = (amugeona) => { // target(amugeona)은 버튼 클릭시 this를 전달받은 객체
+            let res2 = document.getElementById('result2');
+
+            // // 확인버튼을 검색해서 사용할 수 없도록 설정 - 종료 버튼 클릭하면 다시 사용할 수 있도록 설정
+            // v1 = document.querySelector('input[value=확인]');
+            // 이거는 this - target 이거 관계 설정 안했을 경우에 할 수 있는 것.
+            amugeona.style.display = "none";
+            // amugeona는 지역변수, proc3()에서 사용 불가
+            // 전역변수로 변경하면 가능
+            // 그냥 전역변수 하나 만들어서 담으면 끝. 오홍. 쉽네.
+            gtarget = amugeona;
+
+            a = window.setInterval(function(){
+                let cr = parseInt(Math.random()*256);
+                let cg = parseInt(Math.random()*256);
+                let cb = parseInt(Math.random()*256);
+                res2.style.background = `rgb(${cr},${cb},${cb})`;
+            }, 10);
+        }
+
+        // 종료 버튼 클릭 이벤트
+        proc3 = () => {
+            window.clearInterval(a);
+            // 확인 버튼을 검색해서 사용가능하게 설정해줘야 한다
+            // gtarget은 proc2()에서 설정한 전역변수
+            // gtarget.style.display = "block";
+            gtarget.style.display = "inline";
+            
+            pg = document.getElementById('playerGBB');
+            pg.style.display = "block";
+
+            aa = Image(URL="../images/cat-jump.png");
+            document.getElementById('result1').innerHTML = aa;
+        }
+
+        proc4 = (but) => {
+
+            // id가 result3인 요소를 검색
+            let res4 = document.getElementById('result3');
+            
+            but.style.display = "none";
+            gbut = but;
+
+            // change 이름을 이용하여 반복적으로 호출한다.
+            timerId = setTimeout(function change() {
+
+
+                let cr = parseInt(Math.random()*256);
+                let cg = parseInt(Math.random()*256);
+                let cb = parseInt(Math.random()*256);
+
+                // result4인 요소의 배경색을 변경
+                // document.getElementById('result3');
+                // res4.style.background = `rgb(${cr}, ${cg}, ${cb})`;
+
+                // 16진수로 변환한다
+                cr16 = cr.toString(16);
+                cg16 = cg.toString(16);
+                cb16 = cb.toString(16);
+                res4.style.background = "#"+cr16+cg16+cb16;
+
+
+
+                // 호출형식 말고 참조형식으로 준다.
+                // 호출형식이면 함수를 부르는거고, 참조형식은 참조값을 입력하는 거.
+                timerId = setTimeout(change, 100);
+            }, 100)
+        }
+
+        proc5 = () => {
+            // 확인 버튼을 사용 가능하도록 설정
+            gbut.style.display = "inline";
+
+            clearTimeout(timerId);
+        }
+    </script>
+    
+</head>
+<body>
+    <div class="box">
+        <h3>
+            1. setTimeout(fn(){}, milli)<br>
+            milli 시간이 경과하면 fn을 수행하고 종료한다
+        </h3>
+        <input type="button" value="CONFIRM" onclick="proc1()">
+        <div id="result1"></div>
+    </div>
+
+    <div class="box">
+        <h3>
+            2. setInterval(fn(){}, milli)<br>
+            milli 시간이 경과할때마다 fn을 반복적으로 수행한다<br>
+            종료하기 위해서 clearInterval(변수)
+        </h3>
+        <input type="button" value="confrim" onclick="proc2(this)">
+        <input type="button" value="close" onclick="proc3()">
+        <img id="playerGBB" src="../images/가위_좌.png" style="display: none; width: 100px;">
+        <div id="result2"></div>
+    </div>
+    
+    <div class="box">
+        <h3>
+            3. 변수 = setTimout(fn(){}, milli)<br>
+            중첩 setTimeout을 이용해서 setInterval처럼 반복적으로 수행한다<br>
+            종료하기 위해서 clearTimeout() 함수가 필요하다
+        </h3>
+        <input type="button" value="confrim" onclick="proc4(this)">
+        <input type="button" value="close" onclick="proc5()">
+        <div id="result3"></div>
+    </div>
+</body>
+</html>

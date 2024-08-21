@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+
+    <script>
+        proc1 = () => {
+            // let newWind = window.open();
+            // let newWind = window.open("../0807/04.랜덤객체.html");
+            // let newWind = window.open("../0807/04.랜덤객체.html", "새로운 윈도우", "width=300 height=220"); // url, 이름, 크기. 이름은 그냥 붙인 이름
+            // let newWind = window.open("../0807/04.랜덤객체.html", "새로운 윈도우", "width=600 height=500 top=200 left=1200"); // url, 이름, 크기. 이름은 그냥 붙인 이름
+            let newWind = window.open("02.winSub.html", "새로운 윈도우", "width=600 height=500 top=200 left=1200"); // url, 이름, 크기. 이름은 그냥 붙인 이름
+
+            window.close;
+        }
+    </script>
+</head>
+<body>
+    
+    <div class="box">
+        <h3>
+            1. open() / open(url, name/target, spec)
+        </h3>
+        <input type="button" value="CONFIRM" onclick="proc1()">
+        <div id="result1"></div>
+    </div>
+    
+</body>
+</html>

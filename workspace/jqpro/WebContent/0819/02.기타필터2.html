@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <style>
+
+    </style>
+
+    <script>
+        proc1 = () => {
+            $('#testForm *:hidden').each(function(a,b) {
+                // 태그 이름이 input인지 아닌지 비교
+                // this는 $붙이면 , 안붙이면 dom 객체
+                alert(this.tagName);
+                // $(this).attr('name'); // input 관계 없이 쓰는거
+                // $(this).val(); // input 일때만 쓰는거
+                // $(this).text(); // input 아닐때만 쓰는거
+                // str += $(this).text()+"<br>";
+                let str = "* hidden 객체 *<br>"
+  
+                $('#testForm *:hidden').each(function(a,b){
+  
+                    if(this.tagName == "INPUT") {
+                        str += `${this.tagName} : [ ${$(this).attr('name')} : ${$(this).val()} ]<br>` ;
+                    } else {
+                        str += `${this.tagName} : ${$(this).text()}<br>`;
+                    }
+                    $('#result1').html(str);
+                })
+            })
+        }
+
+        proc2 = () => {
+            let str = "* visible 객체 *<br>"
+  
+            $('#testForm *:visible').each(function(a,b){
+            
+                if(this.tagName == "INPUT"){
+                    str +=  `${this.tagName} :  [ ${$(this).attr('name')} : ${ $(this).val()} ] <br> `;
+                } else if(this.tagName != "BR"){
+                    str += ` ${$(this).text()} <br>`;
+                }
+                let res = str+"<br>";
+                res += gender+"<br>";
+                
+                $('#result2').html(str);
+            })
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. attr('name'), attr('type'): 속성값을 가져오기<br>
+            val().text(): 값을 가져오기
+            prop(): 속성의 
+        </h1>
+
+        <input type="button" value="hidden" onclick="proc1()">
+        <input type="button" value="visible" onclick="proc2()">
+        <br>
+
+        <form id="testForm"> 
+            <input type="hidden" name="userAge" value="33">
+            <input type="hidden" name="userCity" value="대전">
+            I D : <input type="text" name="userID" value="hong">  
+            <span style="display:none">ID가 중복됩니다. </span> <br>  
+            이름 : <input type="text" name="userName" value="홍길동">   
+            <span style="visibility:hidden">이름을 입력하세요</span><br>  
+            성별 : <input type="radio" name="sung" value="남" checked>남자  
+            <input type="radio" name="sung" value="여">여자  
+        </form>
+            
+        <div id="result1"></div>
+        <div id="result2"></div>
+    </div>
+
+</body>
+
+</html>

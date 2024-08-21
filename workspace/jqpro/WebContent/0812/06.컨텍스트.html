@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+    
+    <script>
+
+        $(document).ready( () => {
+            
+            // id=btn1을 검색, click 이벤트 실행
+            $('#btn1').on('click', () => {
+
+                // 전체 p태그를 선택. p 태그 현재 총 4개
+                $('p').css('color', 'yellow');
+                // $('p').css('font-size', '50px');
+
+                // 0번째 form(부모) 내부의 p(자식)태그를 선택
+                // 원래 부모자식 쓰는 방법은...
+                // $('document.form[0] p')
+                // 근데 document은 내장객체니까 따옴표 안에 들어가면 안됨
+                // $('#result1 p') // 이런 만든거는 가능
+                // 그래서...
+                // $('p', document.forms[0]); // 이렇게 자식먼저 쓰고, 부모를 뒤에 기술
+                // $('p', '#result1'); // 이것도 가능. 부모 자식 앞 뒤로 바꾸는거 그냥 가능. context라고 한다, 부모를 표현하는.
+                // 부모를 나타내는 context다 라고 한다고 한다. 무슨 말인지는 아직 모르겠다.
+
+                $('p', document.forms[0]).css('font-size', '2.0rem');
+
+                $('#result1 p').css('background', 'green');
+
+
+                // form을 클릭하면 그 내부의 자식 p태그를 선택한다 -- 중요도 별표 5개 -- innerHTML, innerValue 얘네 별 10개.
+                $('.ff').on('click', function() {
+                    // 이런걸 컨텍스트라고 한다.
+                    // this 해야 어느 폼인지 알 수 있는데, 그걸 'this p' 하면 안되니까, 
+                    // 자식 먼저 내보내기, 이게 컨텍스트
+                    $('p', this).css('color', 'red');
+                })
+                
+
+            })
+            
+        })
+    	
+    </script>
+
+
+    <style>
+        .ff {
+            border: 2px solid rgb(80,90,180);
+        }
+    </style>
+
+    
+
+    
+</head>
+
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+        <input type="button" value="confirm" id="btn1">
+
+        <form class="ff">
+            <p>form1 무궁화 꽃이 피었습니다</p>
+        </form>
+        
+        <div id="result1">
+            <p>form1 무궁화 꽃이 피었습니다</p>
+        </div>
+        
+        <form class="ff">
+            <p>form1 무궁화 꽃이 피었습니다</p>
+        </form>
+
+        <p>box 무궁화 꽃이 피었습니다</p>
+        
+    </div>
+
+</body>
+
+</html>

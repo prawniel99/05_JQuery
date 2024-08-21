@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <style>
+        
+    </style>
+
+    <script>
+        let count = 0;
+        // bind 방식
+        $('.btn1').on('click', function(){})
+        // delegate 방식. 추가나 해제 등 이미 만들어져있는 것 뿐 아니라, 새로 만들어진 것들에도 even handler가 실행된다
+        $(document).on('click', '.btn1', function(){
+            let newb = $(`<input type="button" value="새로운${count}" class="btn1">`);
+            count++;
+            $('#result1').append(newb);
+            cr = parseInt(Math.random()*256);
+            cg = parseInt(Math.random()*256);
+            cb = parseInt(Math.random()*256);
+            $('#result2').css('background', `rgb(${cr},${cg},${cb})`);
+        })
+        // bind는 새로 생긴 버튼은 작동 안함.
+        // delegate는 새로 생긴 버튼도 이벤트가 작동을 함.
+        // delegate is a representative. the one from I wanna be a billionair... i'll be playin' basketball with the president, dunkin' on his delegate.
+        // a person authorized to respresent others, in particular an elected representative sent to a conference.
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 추가버튼 클릭 - 새로운 버튼을 result1 추가<br>
+            2. 새로운 버튼을 클릭하면 result2의 배경색을 변경 - bind방식은 불가능 - delegate방식은 가능
+        </h1>
+
+        <input type="button" value="add" class="btn1">
+        <input type="button" value="diselect" id="btn2">
+
+        <div id="result1"></div>
+        <div id="result2"></div>
+    </div>
+
+</body>
+
+</html>

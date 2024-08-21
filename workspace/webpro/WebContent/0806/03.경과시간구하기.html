@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+
+    <script>
+        today = new Date();
+        proc1 = () => {
+            // 자기 생일 입력하기
+            let myday = new Date(1993,7,23);
+
+            // 오늘의 millisec
+            let tomilli = today.getTime();
+
+            // 내 생일의 millisec
+            let mymilli = myday.getTime();
+
+            // 두 날짜 사이의 간격
+            let times = tomilli - mymilli;
+
+            //
+            let my = times/1000/60/60/24/365;
+
+            // let str = document.getElementById('result1');
+            // str.innerHTML = myday;
+            // str.innerHTML += "<br>"+tomilli;
+            // str.innerHTML += "<br>년"+my;
+
+            // alert(my);
+            out = `오늘: ${today.toLocaleString()}<br>`; // 시간까지 나오는거
+            out += `오늘: ${today.toLocaleDateString()}<br>`; // 날짜만 나오는거
+            out += `오늘: ${today.toLocaleTimeString()}<br>`; // 시간만 나오는거
+            out += `내생일: ${myday.toLocaleDateString}<br>`;
+            out += `${my}년째 살고 있습니다<br>`;
+
+            document.getElementById('result1').innerHTML = out;
+        }
+
+        proc2 = () => {
+            // 1일
+            let coupleStart = new Date(2018,4,8);
+
+            // 오늘의 millisec
+            let tomilli = today.getTime();
+
+            // 100일의 millisec
+            let time100 = 100 * 1000 * 60 * 60 * 24;
+            
+            // 총 millisec = 현재 + 100
+            totTime = tomilli + time100;
+            // let hundmilli = ((tomilli/1000/60/60/24) + 100) *24*60*60*1000;
+
+            // Date 객체를 생성. new Date(총millisec)
+            let dday = new Date(totTime);
+            
+            // newDate 변수  출력
+            out = `오늘: ${today.toLocaleString()}<br>`;
+            out += `100일: ${dday.toLocaleDateString()}<br>`;
+
+            document.getElementById('result2').innerHTML = out;
+        }
+        today = new Date();
+        proc3 = () => {
+            // 1. id가 pday인 요소의 값을 가져온다 - 문자열 데이터이다
+            // let pday = get.pday;
+            let pday = document.getElementById('pday').value;
+
+            // 2. 1번의 값으로 Date 객체를 생성
+            let pDate = new Date(pday);
+
+            // 3. 오늘의 millisec - 2번의 millisec을 구한다
+            let times = today.getTime() - pDate.getTime();
+            // let times = today - pDate 도 얼추 가능한데,
+            // └> 시간때문에 정확한 계산이 안된다.
+
+            // 4. 3번의 times로 경과 일수를 구한다 /1000/60/60/24
+            let day = times/1000/60/60/24;
+
+            // 5. 일수를 비교
+            if(day>7) {
+                // str = "교환 불가능";
+                str = `${day}일 경과로 교환 불가`;
+            } else {
+                // str = "교환 가능";
+                str = `${7-day}일 남아 교환 가능`;
+            }
+
+            // 출력
+            out = `오늘: ${today.toLocaleDateString()}<br>`;
+            out += `구입날짜: ${pDate.toLocaleDateString()}<br>`;
+            out += str;
+            document.getElementById('result3').innerHTML = out;
+        }
+    </script>
+</head>
+
+
+<body>
+    <div class="box">
+        <h3>
+            1. 경과시간 구하기
+        </h3>
+        getTime(): millisec 값을 리턴
+        millisec / 1000 / 60 / 60 / 24 / 365
+        <br>
+        <input type="button" value="CONFIRM" onclick="proc1()">
+        <br>
+        <div id="result1"></div>
+    </div>
+
+    <div class="box">
+        <h3>
+            2. 오늘부터 1일. 100일 기념일도 찾기
+        </h3>
+        getTime(): millisec 값을 리턴
+        millisec / 1000 / 60 / 60 / 24 / 365
+        <br>
+        <input type="button" value="CONFIRM" onclick="proc2()">
+        <br>
+        <div id="result2"></div>
+    </div>
+
+    <div class="box">
+        <h3>
+            3. 경과시간 구하기
+        </h3>
+        getTime(): millisec 값을 리턴<br>
+        구입날짜로부터 오늘까지 경과일 수 구하기<br>
+        7보다 크면 교환 불가능, 7보다 작으면 교환 가능<br>
+        <br>
+        <input type="date" id="pday">
+        <input type="button" value="CONFIRM" onclick="proc3()">
+        <br>
+        <div id="result3"></div>
+    </div>
+</body>
+</html>

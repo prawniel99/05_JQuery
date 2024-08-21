@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* new Rect 이렇게는 불가능. Rect가 더 아래에 있어서
+           hoisting이 안됨.
+           onclick은 위치 상관 없고,
+           항상 선언을 먼저 하는 습관을 가지면 문제 없음 */
+        
+        class Rect {
+            constructor(garo, sero) { // Rect 객체를 받는다
+                this.garo = garo;
+                this.sero = sero;
+            }
+
+            // getter .호출방식이 아님. getArea() 아님.
+            // 프로퍼티(속성) 처럼 참조하는 형식으로 사용되고,
+            // 참조시 내부적으로 호출한다.
+            get area() {
+                return this.garo * this.sero;
+            }
+
+            // setter .setArea(5,6) 이런식 아님.
+            // set area(o) {
+            //     this.garo = garo;
+            //     this.sero = sero;
+            // }
+        }
+
+        proc1 = () => {
+            r1 = new Rect(4,5);
+            // r1.garo 이렇게도 되고 r1.garo=10 이렇게도 되고;
+
+            aa = r1.area // r1.area() 이렇게 호출이 아니라, 프로퍼티처럼 사용.
+            // 그게 뭔 뜻일까..
+            // 하이튼 이렇게 하면, getarea()가 실행되는 것.
+            
+            let str = `가로: ${r1.garo} <br>`;
+            str += `세로: ${r1.sero} <br>`;
+            str += `면적: ${aa} <br>`;
+
+            document.getElementById('result1').innerHTML = str;
+        }
+    </script>
+
+    <style>
+        input[type=button]:hover { /* 속성 이용하기 :hover 하면 마우스호버시*/ 
+            box-shadow: 100px 100px 0px 100px skyblue;
+            /* text-shadow: 5px 3px 5px; */
+        }
+        div[id=result1] {
+            border: 1px dotted red;
+            margin: 10px;
+            padding: 10px;
+            font-size: 1.3rem;
+        }
+        /* div{} div전체
+        div#result1{} div중 아이디가 result1인거
+        div[id=result]{} div중 아이디가 result1인거*/
+    </style>
+</head>
+
+<body>
+    <input type="button" value="confirm" onclick="proc1()">
+    <div id="result1"></div>
+</body>
+</html>

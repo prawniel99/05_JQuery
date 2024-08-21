@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body * {
+            box-sizing: border-box;
+            text-align: center;
+        }
+        header, nav, aside, section, footer {
+            border: 1px solid blue;
+            border-radius: 20px;
+            margin: 2px;
+        }
+        header, footer {
+            height: 70px;
+            background: yellow;
+        }
+        nav {
+            height: 50px;
+            background: lightgreen;
+        }
+        aside {
+            width: calc(20% - 10px);
+            height: 500px;
+            background: skyblue;
+        }
+        #left {
+            float: left;
+        }
+        #right {
+            float: right;
+        }
+        section {
+            width: 60.9%;
+            height: 500px;
+            background: coral;
+            float: left;
+        }
+        article {
+            width: 90%;
+            height: 40%;
+        }
+        footer {
+            clear: both;
+        }
+        figure {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <header>header</header>    
+    <nav>nav</nav>
+    <aside id="left">aside1
+        <figure>
+            <img style="width: 100%" src="../images/spongebob.png" alt="spongebob.png">
+            <figcaption>스폰지밥</figcaption>
+        </figure>
+    </aside>
+    <section>section</section>
+    <aside id="right">aside2</aside>
+    <footer>footer</footer>
+</body>
+</html>

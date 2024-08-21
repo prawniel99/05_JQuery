@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script>
+        //랜덤 발생
+        let rnd = parseInt(Math.random()*100+1);
+        let count = 0;
+        let nums = "";
+
+        test = () => {
+            // 아이디가 number인 요소에서 입력한 값을 가져온다 - value
+            let num = document.getElementById('number').value;
+            count++;
+            nums += num+"&nbsp;&nbsp;";
+
+            if(rnd == num){
+                str = "정답입니다<br>"
+                str += "입력횟수 : "+count+"<br>"
+                str += `입력값들 : ${nums} <br>`;
+            } else if( rnd > num ) {
+                str = "더 큰 수로 입력하세요"
+            } else {
+                str = "더 작은 수로 입려갛세요"
+            }
+
+            document.getElementById('result1').innerHTML = str;
+        }
+
+        // 화살표 함수 내에서의 this는 window가 된다.
+        // 함수 선언식에서의 this는 현재 이벤트를 실행하는 객체가 된다.
+        arr = ["가위", "바위", "보"];
+        function radioChange() {
+            // 코드 기술
+            // this: 사용가능: 현재 이벤트를 실행하는 객체 - radio 객체
+            // alert(this); 확인용
+            
+            // 컴퓨터가 랜덤으로 발생
+            let crnd = parseInt(Math.random()*arr.length);
+            let com = arr[crnd];
+
+            // 사용자 radio 버튼 선택
+            let user = this.value;
+
+            let str = "";
+            if(user == com) {
+                str = "비겼습니다";
+            } else if(user == "가위" && com == "보"
+                   || user == "바위" && com == "가위"
+                   || user == "보" && com == "바위") {
+                str = "user가 이겼습니다";
+            } else {
+                str = "com이 이겼습니다";
+            }
+
+            // 출력
+            let out = `user: ${user}<br>`;
+            out += `com: ${com}<br>`;
+            out += `결과: ${str}`;
+
+            // document.getElementById('comGBB').innerHTML = ;
+            document.getElementById('result2').innerHTML = out;
+        }
+
+        window.onload = () => {
+            // class = "rasel"인 요소를 검색, 이벤트 핸들러 작성
+            // HtmlCollection - 유사배열
+            let vradio = document.getElementsByClassName('rasel');
+            for(i=0; i<vradio.length; i++) {
+                // vradio[i].addEventListener('change', function(){ this/*코드기술*/}); 
+                vradio[i].addEventListener('change', radioChange); // 호출형식이 아니고 참조형식
+            }
+        }
+
+        proc3 = () => {
+            let lotto = [];
+
+            for(i="무한반복"; ; ) {
+                let rand = parseInt(Math.random()*46);
+
+                // 배열 중복 여부
+                // let idx  lotto.indexOf(rand);
+                // if(idx == -1) lotto.push(rand);
+                if(!lotto.includes(rand)) lotto.push(rand);
+
+                // break;
+                if(lotto.length>=6) break;
+            }
+            // 출력
+            document.getElementById('result3').innerHTML += lotto+"<br>";
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h1>Number Guess</h1>
+        <p>1부터 100 사이 숫자 입력</p>
+        <input id="number" type="text">
+        <button type="button" onclick="test()">추측</button>
+        <p id="hint"></p>
+        <div id="result1"></div>
+    </div>
+
+    <div class="box">
+        <h1>가위바위보</h1>
+        <input class="rasel" type="radio" name="sel" value="가위">가위
+        <input class="rasel" type="radio" name="sel" value="바위">바위
+        <input class="rasel" type="radio" name="sel" value="보">보
+        <div id="playerGBB"></div>
+        <div id="comGBB"></div>
+        <div id="result2"></div>
+    </div>
+
+    <div class="box">
+        <h1>로또번호 6개</h1>
+        <button type="button" onclick="proc3()">추측</button>
+        <div id="result3"></div>
+    </div>
+</body>
+</html>

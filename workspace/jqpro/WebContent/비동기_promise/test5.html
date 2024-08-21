@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <style>
+        
+    </style>
+
+    <script>
+        function login(username){
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    if(username){
+                        resolve(username)
+                    } else {
+                        reject(new Error(`name을 입력하세요`))
+                    }
+                }, 1000)
+            })
+        }
+
+        /*
+        login("철수").then(user=>{
+            console.log(`${user}님 환영합니다`);
+        }).catch(err=>{
+            console.log(err);
+        })
+        */
+        
+        function addToCart(product){
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    if(product){
+                        resolve(product)
+                    } else {
+                        reject(new Error("상품 없어요"))
+                    }
+                }, 1000)
+            })
+        }
+
+        // promi를 리턴 했을때, promi 만들어서 할 수도 있고, 아래에 그냥 then 해서 할 수 있음
+        // const promi = addToCart("Strawberry");
+        // promi.then(data=>{
+        // })
+
+        // addToCart("수박").then(prod=>{
+        //     console.log(`${prod}를 장바구니에 넣었어요`)
+        // }).catch(err=>{
+        //     console.log(err);
+        // })
+
+        function makePayment(cardNo, product){
+            return new Promise((resolve, reject)=>{
+                setTimeout(() => {
+                    if(cardNo.length!=12){
+                        reject(new Error("잘못된 카드 번호 입니다"));
+                        return;
+                    }
+                    if(!product){
+                        reject(new Error("상품이 없습니다"));
+                        return;
+                    }
+                    resolve(product)
+                    // resolve(cardNo, product)
+                }, 1000);
+            })
+        }
+
+        function goodbye(){
+            
+        }
+
+        // makePayment('123412341234', "딸기")
+        // .then(data=>{
+        //     console.log(`${data}를 결제했습니다`);
+        // }).catch(err=>{
+        //     console.log(err)
+        // })
+
+        const proc1 = () => {
+            login("철수")
+            .then(user=>{
+                console.log(`${user}님 환영합니다`);
+                return addToCart("딸기");
+            }).then(prod=>{
+                console.log(`${prod}를 장바구니에 넣었어요`);
+                return makePayment('123412341234', prod);
+            }).then(prod=>{
+                console.log(`${prod}를 결제했습니다`);
+            }).catch(error=>{
+                console.log(error)
+            }).finally({
+            })
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+
+        <input type="button" value="confirm" onclick="proc1()">
+
+        <div id="result1"></div>
+    </div>
+
+</body>
+
+</html>

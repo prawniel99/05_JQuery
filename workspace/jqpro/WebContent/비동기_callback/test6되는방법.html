@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <style>
+        
+    </style>
+
+    <script>
+        function getData(fn) {
+
+            setTimeout(() => {
+                console.log("서버에서 데이터 가져오기\n id가 a001인 데이터의 이름을 가져오기");
+                let vname = "김은대";
+
+                fn({name: vname});
+            }, 1000);
+            
+        }
+
+        const proc1 = () => {
+            getData(function(data){ // 엥 여기 매개변수 한다고 위에 fn({name: vname})이 어떻게 들어옴? 으잉
+                console.log(`id가 a001인 데이터의 이름${data.name}`); // 으잉! data.. 신기하네
+            })
+        }
+        
+        // test7과 비교 콜백 없이 실행 = 오류
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+
+        <input type="button" value="confirm" onclick="proc1()">
+
+        <div id="result1"></div>
+    </div>
+
+</body>
+
+</html>

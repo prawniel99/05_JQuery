@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+
+    <script>
+        const arr = ["apple", "banana", "peach", "apple", "watermelon", "pinapple", "apple", "strawberry"];
+        a = 0;
+
+        proc1 = () => {
+            // get apple location
+            let fruit = "apple";
+            // let fruit = "banana";
+            // let fruit = "peach";
+            // let fruit = "watermelon";
+            // let fruit = "plum"; // if none, print -1 // need to print (no 'fruit name' exits)
+            
+            // let idx = arr.indexOf(fruit);
+            let idx = arr.findIndex(function(fr) { // arr elements into fr one by one. indexOf is the easier one. FindIndex is newer one with more compatibility.
+                return fruit == fr;
+            })
+            let out = `target fruit: ${fruit}<br>`;
+
+            // if only one sentence is within one part of if-statement, we don't need to use {}.
+            if(idx>=0)
+                out += `index = ${idx}`;
+            else
+                out += `&lt;${fruit}> is not in the list`;
+            document.getElementById('result1').innerHTML = out;
+            a+=1;
+        }
+
+        proc2 = () => {
+            // get apple location
+            let fruit = "apple";
+            
+            let idx = arr.lastIndexOf(fruit)
+            let out = `target fruit: ${fruit}<br>`;
+
+            if(idx>=0)
+                out += `index = ${idx}`;
+            else
+                out += `&lt;${fruit}> is not in the list`;
+            document.getElementById('result2').innerHTML = out;
+            a+=1;
+
+            if(a=2) {
+            document.getElementById('result2-1').innerHTML = "but you can't easily find the index of inner multiples<br>you need to use for-statement";
+            }
+        }
+
+        proc3 = () => {
+            let fruit = "plum";
+            let idx = 0; // initial searching index
+            let str = "target fruit = "+fruit+"<br>";
+            let flag = false; // to check fruit existence
+            
+            while(true) {
+                // get fruit index all
+                idx = arr.indexOf(fruit, idx);
+
+                if(idx<0) break;
+                flag = true;
+                str += `index = ${idx}<br>`;
+                idx++;
+            }
+            if(flag)
+                str += "";
+            else
+                str += fruit+" not found";
+
+            document.getElementById('result3').innerHTML = str;
+        }
+
+        proc4 = () => {
+            let str = `original array: ${arr}<br>`;
+            // input
+            fr = prompt("input fruit");
+            arr.push(fr);
+
+            str += `array after 'push': ${arr}<br>`;
+
+            document.getElementById('result4').innerHTML = str;
+        }
+
+        proc5 = () => {
+            let str = `original array: ${arr}<br>`;
+            let vpop = arr.pop();
+            str += `arry after 'pop': ${arr}<br>`;
+            str += `pop value: ${vpop}<br>`;
+            document.getElementById('result5').innerHTML = str;
+        }
+
+        proc6 = () => {
+            let a = 4;
+            let b = 7;
+            const newarr = arr.slice(a, b);
+            let str = `original array: ${arr}<br>`;
+            str += `slice(${a}, ${b}) arr = ${newarr}`;
+            document.getElementById('result6').innerHTML = str;
+        }
+
+        proc7 = () => {
+            let a = 0;
+            console.log(arr);
+            let str = `original array: ${arr}<br>`;
+            arr.splice(3,0,a,a,a,a,a,a,a,a);
+            str += `new arr: ${arr}<br>`;
+            document.getElementById('result7').innerHTML = str;
+        }
+
+        proc8 = () => {
+            let str = `array length: ${arr.length}<br>`;
+            let vjoin = arr.join();
+            str += `String length: ${vjoin.length}<br>`;
+            
+            // for(i=0; i<arr.length; i++) {
+            //     str += `${i}: ${arr[i]}<br>`;
+            // }
+            for(i=0; i<vjoin.length; i++) {
+                str += `${i}: ${vjoin[i]}<br>`;
+            }
+            document.getElementById('result8').innerHTML = str;
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h3>1,2. Get Element Location<br>
+        indexOf() / lastIndexOf()</h3>
+        <input type="button" value="index" onclick="proc1()">
+        <input type="button" value="last" onclick="proc2()">
+        <br><br>
+        <div id="result1"></div>
+        <div id="result2"></div>
+        <div id="result2-1"></div>
+    </div>
+
+    <div class="box">
+        <h3>3. Get Element Location<br>
+        indexOf(item, start) / lastIndexOf()</h3>
+        <input type="button" value="index" onclick="proc3()">
+        <br><br>
+        <div id="result3"></div>
+    </div>
+
+    <div class="box">
+        <h3>4,5. Add/Remove Array Element<br>
+        push(a,b,c,d) / item = pop</h3>
+        <input type="button" value="push" onclick="proc4()">
+        <input type="button" value="pop" onclick="proc5()">
+        <br><br>
+        <div id="result4"></div>
+        <div id="result5"></div>
+    </div>
+
+    <div class="box">
+        <h3>6. Slice Array Element<br>
+        slice(start, end); returns as a new array<br>
+        original array not changed</h3>
+        <input type="button" value="slice" onclick="proc6()">
+        <br><br>
+        <div id="result6"></div>
+    </div>
+
+    <div class="box">
+        <h3>7. Edit Array Element - Insert/Delete<br>
+        splice(index, n, a,b,c); from index, delete as many of n, then insert a,b,c<br>
+        if n is 0, no delete, only add a,b,c</h3>
+        <input type="button" value="slice" onclick="proc7()">
+        <br><br>
+        <div id="result7"></div>
+    </div>
+
+    <div class="box">
+        <h3>8. Array into String<br>
+        join()</h3>
+        <input type="button" value="slice" onclick="proc8()">
+        <br><br>
+        <div id="result8"></div>
+    </div>
+</body>
+</html>

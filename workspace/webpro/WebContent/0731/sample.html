@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // hoisting 됨
+        function aa() {
+            alert("Hello World");
+        }
+
+        // hoisting 안됨
+        let bb = function() {
+            document.write("Hello World");
+        }
+
+    </script>
+    <input type="button" onclick="aa()" value="Hello World 알러트 띄우기">
+    <input type="button" onclick="bb()" value="화면 Hello World 로 바꾸기">
+</body>
+</html>

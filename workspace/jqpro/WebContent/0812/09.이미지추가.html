@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+    
+
+
+    <script>
+
+        arr = ["cat-jump.png", "cha.jpg", "divo.png", "itzy.jpg", "Koala.jpg", "Penguins.jpg"];
+        
+        // $(docuement).ready( () => {})
+        $(function() {
+            // id=btn1 검색
+            $('#btn1').on('click', () => {
+                // 이미지 생성
+                rand = parseInt(Math.random() * arr.length);
+                // parseInt 빼먹었었고.
+
+                // 이미지 생성. 이미지 선택 arr[rand]
+                // vimg = $('<img/>', { 
+                //     'src' : `../images/${arr[rand]}`,
+                //     'alt' : arr[rand]
+                // })
+                // 실패!
+                // vimg = $(`<img src="../images/${arr[rand]} alt="${arr[rand]}">`);
+                vimg = $(`<img onclick="imgBorder(this)" src="../images/${arr[rand]}" alt="${arr[rand]}">`);
+                // 오홍, 빽틱 안에서는 그냥 ${} 이거 밖에는 무조건 문자니까, 뭐 더하기고 뭐고 필요 없네
+
+
+                // result1에 이미지를 추가
+                $('#result1').append(vimg);
+            }) // click 끝
+        }) // $(function) 끝
+
+        function imgBorder(imgele) {
+            // script
+            // imgele.style.border = "24px inset yellow";
+            // jquery
+            $(imgele).css('border', '24px inset yellow');
+        }
+
+
+    </script>
+
+
+
+    <style>
+        img {
+            width: 100px;
+        }
+    </style>
+
+    
+
+</head>
+
+
+
+<body>
+
+
+
+    <div class="box">
+        <h1>
+        	1. 버튼 클릭시 result1에 이미지 생성하여 추가<br>
+            이미지 클릭시, 테두리 표시
+        </h1>
+        <input type="button" value="add image" id="btn1">
+        <div id="result1"></div>
+    </div>
+
+
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <script>
+        proc1 = () => {
+            // result1 자식 중 form 전부중에 사용 가능한 상태인 애들만
+            $('#result1 > form *:enabled').css('border', '10px solid lime');
+            $('#result1 > form *:disabled').css('border', '10px solid red');
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+        <input type="button" value="confirm" onclick="proc1()">
+        <div id="result1">
+
+            <form> 
+                <input type="text" name="id"><br>
+                <input type="password" name="pass"><br><br>
+                
+                <select name="disSelect" disabled>
+                    <option>Option1</option>
+                    <option>Option2</option>
+                    <option>Option3</option>
+                    <option>Option4</option>
+                </select><br><br>
+
+                <textarea name="enTextarea" rows=10 cols=20>text</textarea><br>
+                <input type="button" value="확인" onclick="alert('hello~~')" disabled><br>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

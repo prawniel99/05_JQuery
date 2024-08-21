@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<style>
+		</style>
+		
+		<script>
+			function proc1() {
+				var vform = document.querySelector('form');
+				
+				//var vform = document.getElementsByTagname('form')[0];
+				
+				// form요소의 배경색을 변경
+				vform.style.background = "yellow";
+			}
+		</script>
+	</head>
+	<body>
+			<form action="test3.jsp" method="post">
+				아이디: <input type="text" name="id"> <br>
+				이름: <input type="text" name="name"> <br>
+				비밀번호: <input type="password" name="pass"> <br>
+				첨부파일 <input type="file" name="file"> <br>
+				
+				오늘의 할 일 <input type="checkbox" name="todo" value="수업시간에 깨어있기">수업시간에 깨어있기
+				             <input type="checkbox" name="todo" value="오류 해결하기">오류 해결하기
+				             <input type="checkbox" name="todo" value="저녁메뉴 생각하기">저녁메뉴 생각하기
+				             <input type="checkbox" name="todo" value="과제 하기">과제 하기
+				             <input type="checkbox" name="todo" value="저녁 배그">저녁 배그
+				<br>
+				<input type="submit">
+				<input type="reset">
+				<input type="button" value="확인" onclick="proc1()">
+			</form>
+	</body>
+</html>

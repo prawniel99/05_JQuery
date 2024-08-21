@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // 함수표현식 -> hoisting 안돼서 미리 만들어야 함
+        // 호출하기 전에 미리 선언한다
+        // function sum(...args) {
+            const sum = (...args) => {
+            let total = 0;
+            let leng = args.length;
+            for(let i=0; i<args.length; i++) {
+                total += args[i];
+            }
+            return total;
+        }
+
+        // 함수호출
+        var vtot = sum(15,440,45,67,12)
+        console.log(vtot);
+        var vtot = sum(1,4,9,10)
+        console.log(vtot);
+
+        /*
+        // 함수선언식/정의
+        // 함수선언식은 더 뒤에 만들어도 hoisting 돼서 위에서 실행 가능
+        // 위치가 호출전 또는 호출후 어디에서든 가능하다
+        function sum(...args) {
+            let total = 0;
+            let leng = args.length;
+            for(let i=0; i<args.length; i++) {
+                total += args[i];
+            }
+            return total;
+        }
+        */
+    </script>
+</head>
+
+<body>
+    <div></div>
+</body>
+</html>

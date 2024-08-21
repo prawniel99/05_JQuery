@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+    </style>
+
+    <script type="text/javascript">
+        function calc(op) {
+            // x, y에 입력한 값을 가져온다 -> value
+            let vx = parseInt(document.querySelector('#x').value);
+            let vy = parseInt(document.querySelector('#y').value);
+            
+            // 비교 + - * / -> if switch -> 결과값을 생성
+            switch(op) {
+                case "+" :
+                    res = vx + vy;
+                    break;
+                case "-" :
+                    res = vx - vy;
+                    break;
+                case "*" :
+                    res = vx * vy;
+                    res = res.toLocaleString();
+                    break;
+                case "/" :
+                    res = vx / vy;
+                    res = res.toFixed(2);
+                    break;
+            }
+
+            // 출력
+            document.querySelector('#sum').value = res;
+            document.querySelector('#sp1').innerText = vx;
+            document.querySelector('#sp2').innerText = vy;
+            document.querySelector('#sp3').innerText = res;
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        첫번째: <input id="x"><br>
+        두번째: <input id="y"><br>
+        결과: <input id="sum"><br>
+        <input type="button" onclick="calc('+')" value="+">
+        <input type="button" onclick="calc('-')" value="-">
+        <input type="button" onclick="calc('*')" value="*">
+        <input type="button" onclick="calc('/')" value="/"><br>
+        <p>첫번째 값: <span id="sp1"></span></p>
+        <p>두번째 값: <span id="sp2"></span></p>
+        <p>결과: <span id="sp3"></span></p>
+    </form>
+</body>
+</html>

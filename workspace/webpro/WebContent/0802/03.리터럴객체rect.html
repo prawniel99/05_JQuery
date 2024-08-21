@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+    </style>
+
+    <script>
+        const rect = { // 중괄호 오는게 '객체'
+            garo: 3, // key colon value comma
+            sero: 2, // key : value ,
+            
+            getArea: function() {
+                return this.garo * this.sero;
+            },
+
+            getCircum: function() {
+                return (parseInt(this.garo)+parseInt(this.sero)) * 2;
+            }
+        }
+
+        printRect = (out) => {
+            // rect 정보 출력
+            let str = "";
+            str += `가로: ${rect.garo}, <br>`;
+            str += `세로: ${rect.sero}, <br>`;
+            str += `면적: ${rect.getArea()}, <br>`;
+            str += `둘레: ${rect.getCircum()}, <br>`;
+
+            document.querySelector(out).innerHTML = str;
+        }
+
+        proc1 = () => {
+            printRect('#result1');
+        }
+        
+        proc2 = () => {
+            // 입력
+            rect.garo = prompt("가로 입력");
+            rect.sero = prompt("세로 입력");
+
+            // 정보 출력
+            printRect('#result2');
+        }
+        print 
+    </script>
+</head>
+
+<body>
+    <h3>rect객체 정보 출력하기</h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <br>
+    <div id="result1"></div>
+    
+    <h3>garo, sero 입력 - rect객체 정보 출력하기</h3>
+    <input type="button" value="확인" onclick="proc2()">
+    <br>
+    <div id="result2"></div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+
+    <script type="text/javascript">
+        arr = ["Hello", "happy", "문서", "새로고침", "랜덤", "발생", "열", "출력"];
+        a = 0;
+        const procAdd = () => {
+        
+            rand = parseInt(Math.random() * arr.length);
+            // 문자열선택 arr[rand]
+            
+            // p태그를 생성
+            ptag = document.createElement('p');
+            
+            // text Node를 생성
+            txt = document.createTextNode(arr[rand]);
+            
+            // text Node를 p태그에 추가
+            ptag.appendChild(txt);
+            
+            // p태그를 result1에 추가
+            a++;
+            document.getElementById('result1').appendChild(ptag);
+        
+        }
+
+
+
+        const procDel = () => {
+            if(a==0) alert("no more values");
+            // 부모 검색 - result1 검색
+            res1 = document.getElementById('result1');
+
+            // 지울 대상을 선택 - 처음/마지막
+            // vdel = res1.firstChild;
+            vdel = res1.lastChild;
+            
+            if(a>0) a--;
+            res1.removeChild(vdel);
+        }
+
+
+        
+        const addProc2 = () => {
+            rand = parseInt(Math.random() * arr.length);
+            // 문자열선택 arr[rand]
+
+            // p태그 생성
+            ptag = document.createElement('p');
+
+            // text생성
+            txt = document.createTextNode(arr[rand]);
+
+            // 삭제 버튼 생성
+            delbtn = document.createElement('input');
+            // delbut.setAttribute('type', 'button');
+            delbtn.type = "button";
+            delbtn.value = "삭제";
+            delbtn.onclick = function() { // this를 쓰거나 표현식을 쓰려면 this 쓰면 안된다
+                let ptag = this.parentNode;
+                ptag.remove();
+            }
+
+            // p태그에 text를 추가
+            ptag.appendChild(txt);
+
+            // p태그에 삭제버튼을 추가
+            ptag.appendChild(delbtn);
+
+            // p태그를 result2에 추가
+            document.getElementById('result2').appendChild(ptag);
+        }
+        
+        
+        
+    </script>
+</head>
+<body>
+
+
+
+    <div class="box">
+        <h3>1.</h3>
+            <input type="button" value="추가" onclick="procAdd()">
+            <input type="button" value="삭제" onclick="procDel()">
+            <br>
+            <div id="result1"></div>
+    </div>
+
+
+    
+    <div class="box">
+        <h3>2.</h3>
+            <input type="button" value="추가" onclick="addProc2()">
+            <br>
+            <div id="result2"></div>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<style>
+		
+		</style>
+		
+		
+	</head>
+	<body>
+		<form action="test2.jsp" method="post">
+		
+		<!-- value 속성은 초기값을 나타내고 필수 속성은 아니다 -->
+			아이디: <input type="text" name="id" value="a001"> <br>
+			이름: <input type="text" name="name" value="김은대"> <br>
+			비밀번호: <input type="password" name="pass" value="1234"> <br>
+		<!-- type="radio"일 경우, value는 필수 속성 -->
+			성별: <input type="radio" name="gender" value="남자">남자
+			      <input type="radio" name="gender" value="여자">여자 <br>
+		<!-- 사용자 브라우저에서는 보이지 않지만 서버로 전송되는 데이타 -->
+			<input type="hidden" name="age" value="20">
+			<br>
+			<input type="submit">
+			<input type="image" src="../images/check.png" alt="check.pn"><!-- 제출, submit과 같은 기능을 갖는다 -->
+			<button>전송</button> <!-- 제출, submit과 같은 기능을 갖는다 -->
+			<input type="reset">
+		</form>
+	</body>
+</html>

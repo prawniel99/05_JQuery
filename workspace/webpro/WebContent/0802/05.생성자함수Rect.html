@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="../images/check.png">
+
+    <style>
+
+    </style>
+
+    <script>
+        function Rect(garo, sero) {
+            this.garo = garo;
+            this.sero = sero;
+            this.getArea = function() {
+                return this.garo * this.sero;
+            }
+        }
+
+        Rect.prototype.getName = function() {
+            return this.name;
+        }
+
+        printRect = (obj, out) => {
+            // rect 정보 출력
+            let str = "";
+            str += `이름: ${obj.getName()}<br>`;
+            str += `가로: ${obj.garo}<br>`;
+            str += `세로: ${obj.sero}<br>`;
+            str += `면적: ${obj.getArea()}<br>`;
+            // str += `둘레: ${obj.getCircum()}<br>`;
+
+            document.querySelector(out).innerHTML = str;
+        }
+
+        proc1 = () => {
+            const r1 = new Rect(5, 3);
+            r1.name = "사각형";
+            // 출력
+            printRect(r1, '#result1');
+        }
+        
+        proc2 = () => {
+            const r2 = new Rect(3, 8);
+            r2.name = "네모";
+            /*
+            // r2만 사용 가능. -> 프로토타입으로 만들것.
+            r2.getName = function() {
+                return this.name;
+            } */
+            // 출력
+            printRect(r2, '#result2');
+        }
+    </script>
+</head>
+
+<body>
+    <h2>생성자 함수 function Rect(garo, sero) { } <br>
+        사용시: const r1 = new Rect(5, 3); 생성해야 한다
+    </h2>
+    <h3>rect객체 정보 출력하기</h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <br>
+    <div id="result1"></div>
+    
+    <h2>생성자 함수 function Rect(garo, sero) { } <br>
+        사용시: const r2 = new Rect(3, 8); 생성해야 한다
+    </h2>
+    <h3>객체 정보 출력하기</h3>
+    name 속성과 getName()메소드 추가<br>
+    r2만 사용 가능하다.
+    <br>
+    <input type="button" value="확인" onclick="proc2()">
+    <br>
+    <div id="result2"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = function() {
+        var userName;
+        userName = window.prompt("이름을 입력하세요", "홍길동");
+        // 출력
+        document.getElementById('result').innerText = userName;
+        }
+    </script>
+
+    <style>
+        div {
+            border: 2px dotted green;
+            width: 30%;
+            height: 100px;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="result"></div>
+</body>
+</html>

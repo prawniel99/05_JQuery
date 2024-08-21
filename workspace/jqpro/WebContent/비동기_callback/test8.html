@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <style>
+        
+    </style>
+
+    <script>
+        // 로그인 / 장바구니 / 결제하기
+        // 로그인 함수 - username,   fnPro: 콜백 함수를 받는 매개변수
+
+        // 로그인
+        function login(username, fnPro){
+            setTimeout(() => {
+                fnPro(username); // fnPro는 아래 login("철수", function) 저거에서 function인거지, 그래서 username이 data로 들어가는거지
+                // 그리고 아래 function 자체가 실행이 됨
+            }, 2000);
+        } // 아하, 함수는 기본 실행되지 않지만, 아래는 함수가 아니라 함수호출이라서 자동 실행 되는구나!
+        // login("철수", function(data){
+        //     console.log(`${data}님 안녕하세요`);
+        // })
+
+        // 장바구니
+        function addToCart(product, fnPro){
+            setTimeout(() => {
+                fnPro(product); // 실제로는 네트워크 환경 등 시간이 얼마나 걸릴지는 더 자세하게 알아야 하지만, 일단 그냥 보면, 로그인보다 장바구니가 빠르니까 문제임.
+            }, 3000);
+        }
+        // addToCart("딸기", function(item){
+        //     console.log(`${item}을 장바구니에 담았습니다`);
+        // })
+
+        // 결제하기
+        function makePayment(cardNo, product, fnPro){
+            setTimeout(() => {
+                fnPro(cardNo, product);
+            }, 1000);
+        }
+        // makePayment("123012301230", "딸기", (cardNo, product)=>{
+        //     console.log(`${cardNo.slice(0,4)}********으로 ${product}를 구매했습니다`);
+        // })
+
+        // 1번 실행 = 실행순서가 보장되지 않는다
+        /*
+        const proc1 = () => {
+            // 실행순서가 보장되지 않는다
+            login("철수", function(data){
+                console.log(`${data}님 안녕하세요`);
+            })
+            
+            addToCart("딸기", function(item){ // function(item){} 해도 되고 (item)=>{} 이렇게 화살표 해도 되고, 매개변수 1개면 item=>{} 이렇게 괄호 없이 화살표 해도 되고
+                console.log(`${item}을 장바구니에 담았습니다`);
+            })
+            
+            makePayment("123012301230", "딸기", (cardNo, product)=>{
+                console.log(`${cardNo.slice(0,4)}********으로 ${product}를 구매했습니다`);
+            })
+        }
+        */
+               
+        // 실행 순서를 보장받기 위해서는 콜백 함수를 사용해야 한다.
+        // 2번 실행
+        /*
+        const proc1 = () => {
+            // 로그인
+            login("철수", function(data){
+                console.log(`${data}님 안녕하세요`);
+                // 장바구니 담기
+                addToCart("딸기", function(item){
+                    console.log(`${item}을 장바구니에 담았습니다`);
+                    // 결제하기를 장바구니의 콜백함수 내에서 처리
+                    makePayment("123012301230", "딸기", (cardNo, product)=>{
+                        console.log(`${cardNo.slice(0,4)}********으로 ${product}를 구매했습니다`);
+                        // 리뷰쓰기
+                        review(a, ()=>{
+                            // 쿠폰받기
+                            getCoupon(sfj, ()=>{
+                            })
+                        })
+                    }) // 결제하기 끝
+                }) // 장바구니 끝
+            }) // 로그인 끝
+        } // proc1 끝
+        */
+        // 이거는 콜백지옥 콜백 너무 많음
+        
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+
+        <input type="button" value="confirm" onclick="proc1()">
+
+        <div id="result1"></div>
+    </div>
+
+</body>
+
+</html>

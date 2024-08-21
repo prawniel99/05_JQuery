@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+    
+
+
+    <script>
+        $(function() {
+            $('input[type=button]').on('click', () => {
+
+                // h3 다음의 모든 형제의 배경색을 변경, 길이지정, 가운데 정렬
+                // $('h3 ~ p').css().css().css();
+                /*
+                $('h3 ~ p').css('background', 'rgb(180,240,190)')
+                           .css('width', '50%')
+                           .css('text-align', 'center')
+                           .css('color', 'rgb(40, 40, 40)');
+                */
+
+                // key: value. 위에거랑 똑같은데 중괄호로 묶고 key: value로 변경.
+                $('h3 ~ p').css({'background': 'rgb(180,240,190)', 'width': '50%', 'text-align': 'center', 'color': 'rgb(40, 40, 40)'});
+
+                // h3 다음의 첫번째 형제의 글자를 굵게, 크게: font-weight
+                $('h3 + p').css({'font-weight': 'bold', 'font-size': '2.0rem'})
+            
+            })
+        })
+
+    </script>
+
+    
+
+</head>
+
+
+
+<body>
+
+
+
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+        <input type="button" value="confirm">
+        <div id="result1">
+
+            <p>형제 선택자 에 대하여</p>
+            <h3>꼬마버스 타요 가족을 소개 합니다</h3>
+            <p>타요</p>
+            <p>로기</p>
+            <p>라니</p>
+            <p>가니</p>
+           
+        </div>
+    </div>
+
+
+
+</body>
+
+
+
+</html>

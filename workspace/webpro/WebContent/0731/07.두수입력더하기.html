@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // function proc1() {
+        // proc1 = function() {
+        const proc1 = () => {
+            // 수1 입력
+            let su1 = parseInt(prompt("첫번째 숫자 입력"));
+            let su2 = parseInt(prompt("두번째 숫자 입력"));
+            let res = su1+su2;
+
+            // div에 출력
+            // let out = document.getElementsByTagName('div')[0];
+            let out = document.querySelector('div');
+            // querySelector 이렇게 하면, div 여러개 있어도 첫번째거 선택.
+            // 아이디일때는 # 있어야 하지만, 태그라서 그냥 'div'.
+
+            // 출력내용 작성
+            let str = su1 + " + " + su2 + " = " + res;
+            out.innerHTML = str;
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="확인" onclick="proc1()">
+    <button type="button" onclick="proc1()">오홍</button>
+
+    <br><br>
+
+    <div>덧셈 출력 공간</div>
+</body>
+</html>

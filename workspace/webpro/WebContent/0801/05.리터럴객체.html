@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        const myCar = {
+            make: "Bugatti",
+            model: "Divo",
+            year: 2020,
+            speed: 350,
+
+            brake: function() {
+                this.speed = 0;
+            },
+            accel : function() {
+                this.speed = 200;
+            }
+        }
+
+        proc1 = () => {
+            // 객체 myCar의 정보를 출력
+            let str = "";
+            str += `make: ${myCar.make} <br>`; /* myCar['make'] 이렇게도 가능*/
+            str += `model: ${myCar.model} <br>`;
+            str += `year: ${myCar.year} <br>`;
+            str += `speed: ${myCar.speed} <br>`;
+            
+            myCar.brake(); // speed = 0;
+            str += `speed: ${myCar.speed} <br><br>`;
+            
+            document.querySelector('#result1').innerHTML = str;
+        }
+        
+        proc2 = () => {
+            // call function (함수 호출)
+            myCar.accel(); // speed = 200;
+            let str = `speed: ${myCar.speed} <br>`;
+            document.querySelector('#result2').innerHTML = str;
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="확인" onclick="proc1()">
+    <input type="button" value="확인" onclick="proc2()">
+    <br><br>
+    <div id="result1"></div>
+    <div id="result2"></div>
+</body>
+</html>

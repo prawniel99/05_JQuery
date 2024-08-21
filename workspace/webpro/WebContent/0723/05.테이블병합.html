@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>테이블병합</title>
+		
+		<link rel="stylesheet" href="../css/public.css">
+		
+		<style>
+			table {
+				border: 2px solid blue;
+				margin: 10px;
+			}
+			
+			td {
+				width: 200px;
+				height: 50px;
+				text-align: center;
+			}
+			
+			caption {
+				/* border: 8px double orange; */
+				margin: 5px;
+				font-size: 1.5rem;
+				padding:10px;
+				/* caption-side: bottom; */
+			}
+		</style>
+	</head>
+	<body>
+		<pre>
+		열병합 - colspan - 가로로 병합
+		행병합 - rowspan - 세로로 병합
+		</pre>
+		
+		<table border="1">
+			<caption>
+				VIP리스트
+			</caption>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+		</table>
+
+2번 테이블
+
+		<table border="1">
+			<caption>
+				VIP리스트
+			</caption>
+			<tr>
+				<td>a1</td>
+				<td>a2</td>
+				<td>a3</td>
+			</tr>
+
+			<tr>
+				<td rowspan="2">b1</td>
+				<td>b2</td>
+				<td>b3</td>
+			</tr>
+
+			<tr>
+				<td>c2</td>
+				<td>c3</td>
+			</tr>
+
+			<tr>
+				<td colspan="3">d1</td>
+			</tr>
+		</table>
+
+	</body>
+</html>

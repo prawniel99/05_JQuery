@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			h1 {
+				text-align: center;
+				font-size: 60px;
+				font-family: "Times New Roman";
+			}
+			table {
+				margin: 10px auto;
+				border: 3px solid darkblue;
+			}
+			
+			td {
+				width: 140px;
+				height: 140px;
+				border: 1px solid black;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>테이블 연습</h1>
+		<table>
+			<tbody>
+				<tr>
+					<td colspan="2">a1</td>
+					<td colspan="2">a2</td>
+					<td>a3</td>
+					<td>a4</td>
+				</tr>
+
+				<tr>
+					<td colspan="4">b1</td>
+					<td colspan="2">b2</td>
+				</tr>
+
+				<tr>
+					<td colspan="4">c1</td>
+					<td colspan="2" rowspan="2">c2</td>
+				</tr>
+
+				<tr>
+					<td>d1</td>
+					<td>d2</td>
+					<td>d3</td>
+					<td>d4</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

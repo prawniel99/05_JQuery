@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+
+
+
+
+
+    <script>
+
+        
+
+        proc1 = () => {
+            out = `href: ${location.href}<br>`;
+            out += `host: ${location.host}<br>`;
+            out += `hostname: ${location.hostname}<br>`;
+            out += `port: ${location.port}<br>`;
+            out += `protocol: ${location.protocol}<br>`;
+            out += `pathname: ${location.pathname}<br>`;
+
+            document.getElementById('result1').innerHTML = out;
+
+
+        }
+
+
+
+
+
+        
+
+        proc2 = () => {
+
+            // location.href = "http://localhost/webpro/0808/timeout_interval.html";
+            // 같은 페이지 안에 있기 때문에, 문서명 앞 생략 가능
+            location.href = "03.timeout_interval.html";
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        fnAssign = () => {
+
+
+
+            location.assign("03.timeout_interval.html");
+
+
+
+        }
+
+
+
+        fnReplace = () => {
+
+
+            
+            location.replace("03.timeout_interval.html");
+
+
+
+        }
+
+
+
+        fnReload = () => {
+
+
+
+            location.reload("03.timeout_interval.html");
+
+
+
+            // 랜덤으로 발생되는 문자열을 result3에 출력
+
+
+
+            // 1초 후에 reload(새로고침)하여 원래 문서로 돌아온다
+
+
+
+            arr = ["Hello", "happy", "사랑은 늘 도망가", "우리들의 블루스",
+                   "이제 나만 믿어요", "Happy New Year", "밤하늘의 pearl~"];
+            
+            rand = parseInt(Math.random()*arr.length);
+
+            // arr[rand] 이용해서 출력하고 기다리고 하기.
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</head>
+
+
+
+
+
+
+
+
+
+<body>
+
+
+
+
+
+    <div class="box">
+        
+        <h1>
+            1. url 정보를 가짐<br>
+        </h1>
+
+        <input type="button" value="CONFIRM" onclick="proc1()">
+
+        <div id="result1"><br><br><br><br><br>
+
+    </div>
+
+    
+
+
+
+
+    
+    
+    <div class="box">
+
+
+
+        <h1>2. 문서 이동하기</h1>
+
+
+
+        <h3>1. button onclick = "proc2"</h3>
+        <input type="button" value="CONFIRM" onclick="proc2()"><br><br><br><br><br>
+
+
+        
+        <h3>2. a href에서 다른 파일 지정 href="파일이름"</h3>
+        <a href="03.timeout_interval.html">이동</a><br><br><br><br><br>
+
+
+
+        <h3>3. a href에서 script 함수를 호출 href = "javascript:proc2()"</h3>
+        <a href = "javascript:proc2()">이동</a><br><br><br><br><br>
+
+
+
+        <h3>4. a태그에서 서버로 보내기 onclick ="location.href='href.jsp?id=a001'"></h3>
+        <a href="" onclick="location.href='href.jsp?id=a001'">이동</a><br><br><br><br><br>
+
+
+
+        <h3>5. a태그에서 onclick="proc2()"</h3>
+        <a href="#" onclick="proc2()">이동</a><br><br><br><br><br>
+
+
+
+
+
+
+
+
+        <div id="result2"></div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="box">
+        
+        <h1>
+            3. 메소드<br>
+        </h1>
+        <h3>
+            assign()  : 새로운 문서 로드, 뒤로가기 가능<br>
+            replace() : 새로운 문서로 대체, 뒤로가기 불가능<br>
+            reload()  : 현재 문서를 다시 로드, 새로 고침의 기능
+        </h3>
+            
+
+        <input type="button" value="assign" onclick="fnAssign()">
+        <input type="button" value="replace" onclick="fnReplace()">
+        <input type="button" value="reload" onclick="fnReload()">
+
+        <div id="result3"><br><br><br><br><br>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

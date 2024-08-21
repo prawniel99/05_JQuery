@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+body {
+	position: absolute;
+	animation: mup 1s infinite linear;
+}
+
+@keyframes mup {
+	0% { top: 10px }
+	30% { top: 40px }
+	80% { top: 740px}
+	90% { top: 780px }
+	100% { top: 800px }
+	
+	0% { left: 0 }
+	30% { left: 200px }
+	60% { left: 500px }
+	100% { left: 0 }
+}

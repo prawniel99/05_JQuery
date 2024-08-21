@@ -1,0 +1,25 @@
+body {
+    background: white;
+}
+
+#light1 {
+    position: fixed;
+    left: calc(50% - 25px);
+    top: calc(50% - 25px);
+}
+
+#textbox {
+    border: 2px solid rgb(244,244,244);
+    text-align: center;
+    width: 400px;
+    height: 60px;
+    position: fixed;
+    left: 50%;
+    top: 60%;
+    transform: translateX(-200px);
+}
+
+#textbox p {
+    position: relative;
+    top: 10%;
+}

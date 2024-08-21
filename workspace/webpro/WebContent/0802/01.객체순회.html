@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            height: 100px;
+            margin: 5px;
+            padding: 5px;
+            border: 2px solid grey;
+            background-image: linear-gradient(to right, skyblue, lightyellow, rgb(255, 228, 233));
+        }
+    </style>
+
+    <script>
+        const myCar = {
+            make: "Bugatti",
+            model: "Divo",
+            year: 2020
+        }
+
+        proc1 = () => {
+            // 객체속성 접근
+            // 이렇게 하면 값으로 접근
+            // console.log(myCar.make, myCar.model, myCar.year);
+            // console.log(myCar['make'], myCar['model'], myCar['year']);
+
+            // 반복문 이용
+            // for(let i in myCar) { // i변수는 속성 이름. 값 말고 속성이 찍힘. bugatti 말고 make.
+            //     console.log(i);
+            // } 아래에 다시 해보자
+            let str = "";
+            for(let i in myCar) { // ${} 안에 있는건 변수! 변수! 변수! ${} 달러대괄호 안에 있는건 변수! 변수! 변수!
+                str += `myCar.${i} : ${myCar[i]} <br>`;
+            }
+            document.querySelector('#result1').innerHTML = str;
+        }
+
+        proc2 = () => {
+            let str="";
+            const keys = Object.keys(myCar); // myCar 객체의 속성만 리턴하는 배열/*
+            keys.forEach(function(item, index) {
+                str += `${index} : ${item} <br>`;
+            })
+            /*
+            for(const key of Object.keys(myCar)) {
+                str += `$(key) <br>`;
+            }
+            */
+            document.querySelector('#result2').innerHTML = str;
+        }
+
+        proc3 = () => {
+            let str = "";
+            /*
+            const keys = Object.values(myCar); // 배열로 리턴
+            values.forEach((value, index) => {
+                str += `${index} : ${value} <br>`;
+            })
+            */
+            for(const value of Object.values(myCar)) {
+                str += `${value} <br>`;
+            }
+            document.querySelector('#result3').innerHTML = str;
+        }
+
+        proc4 = () => {
+            let str = "";
+            /*
+            const ent = Object.entries(myCar);
+            // ent.forEach(function(변수, 인덱스){
+            // }) 원래 이건데
+            ent.forEach(function([key, value], index) {
+                str += `${index} : ${key} -> ${value} <br>`;
+            })
+            */
+            for(const[key, value] of Object.entries(myCar)) {
+                str += `${key} -> ${value} <br>`;
+            }
+            document.querySelector('#result4').innerHTML = str;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>1. 반복문 for(let i in myCar) : i는 속성을 대입받는다</h2>
+    <input type="button" value="확인" onclick="proc1()">
+    <br><br>
+    <div id="result1"></div>
+    
+    <h2>2. const key of Object.keys(myCar) 반환값은 배열이다</h2>
+    <input type="button" value="확인" onclick="proc2()">
+    <br><br>
+    <div id="result2"></div>
+    
+    <h2>3. const value of Object.values(myCar)</h3>
+    <input type="button" value="확인" onclick="proc3()">
+    <br><br>
+    <div id="result3"></div>
+    
+    <h2>4. const[key, value] of Object.entries(myCar)</h4>
+    <input type="button" value="확인" onclick="proc4()">
+    <br><br>
+    <div id="result4"></div>
+</body>
+</html>

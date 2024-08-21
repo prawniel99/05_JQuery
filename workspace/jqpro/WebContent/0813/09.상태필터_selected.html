@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <script>
+        $(function() {
+            $('#btn1').on('click', function() {
+                // 자식이니까 > 써야하지만, 다른거 뭐 없어서 없어도 상관 없긴 함.
+                // 이렇게 하면, 선택된 한가지만 뜸. 또 반복문 해서 띄워줘야 함.
+                // alert($('#spring > option:selected').val());
+
+                // 여러개 하려면 반복문 사용하기
+                // 방법1
+                // let str = "";
+                // $.each($('#spring option:selected'), function(x, y) {
+                //     str += $(this).val()+"<br>";
+                // })
+                // // 방법2
+                // $('#spring option:selected').each(function() {
+                //     str += $(this).val()+"<br>";
+                // })
+
+                // 방법1 사용하기
+                let str = "";
+                $.each($('#spring option:selected'), function(x, y) {
+                    str += $(this).val()+"<br>";
+                })
+                $('#res').html(str); // == document.getElementById('#res').innerHTML = str;
+                
+            })
+        })
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+
+        <input type="button" value="confirm" id="btn1">
+
+        <div id="result1">
+
+            <form>
+                봄소식 : <select name="spring" id="spring" multiple size="6">
+                    <option>개나리</option>
+                    <option selected>진달래</option>
+                    <option>민들레</option>
+                    <option selected>벚꽃</option>
+                    <option>목련</option>
+                    <option>철쭉</option>
+                </select>
+            </form>
+
+            <div id="res"></div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+
+    <style>
+        img {
+            /* border: 3px double goldenrod; */
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+    <script>
+        let fir = null;
+
+        const start = (btn) => {
+            btn.style.display = "none";
+            // cbtn.style.display = "inline-block";
+
+            stopbtn.style.display = "inline-block";
+
+            // 행운의 당첨 테두리 삭제
+            if(fir!=null) {
+                fir[rd].style.border = "none";
+            }
+            
+            // 전역변수로 변환
+            gbtn = btn;
+            // 이미지의 첫번재를 선택
+            // res1 = document.getElementById('result1').firstChild;
+            res1 = document.getElementById('result1');
+            // fir = res1.firstChild;
+            // res1.appendChild(fir);
+
+            // 인터벌. a가 있어야 종료할 수 있음
+            a = setInterval(function(){
+                fir = res1.children;
+                res1.appendChild(fir[0]);
+            }, 10);
+        }
+
+        const stop = (btn) => {
+
+            // 종료버튼 감추기
+            btn.style.display = "none";
+            
+            // 위에 btn을 가져와야 하는데, 지역변수라서 못가져오니까 아래처럼 가능
+            // let btn = document.querySelector('input[value=시작]');
+            // 아니면 그냥 start() 에서 전역변수로 설정하면 됨
+            gbtn.style.display = "inline-block";
+
+            clearInterval(a);
+
+            // 랜덤수를 발생
+            rd = parseInt(Math.random()*fir.length);
+
+            // 행운의 이미지 선택
+            // fir[rd].style.border = "5px double red";
+        }
+    </script>
+</head>
+<body>
+    
+    <div class="box">
+        <h3>
+            1. 첫번째 이미지를 마지막으로 보내기 - appendChilde()
+            1초마다 한번씩 반복적으로 수행 - setInterval
+            당첨이 제일 왼쪽에 있으면 당첨!
+        </h3>
+        <input type="button" value="start" onclick="start(this)">
+        <input type="button" value="stop" onclick="stop(this)" style="display: none" id="stopbtn">
+        <div id="result1">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-win.png" alt="luck-win.png" id="win">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+            <img src="../images/luck-lose.jpg" alt="luck-lose.jpg">
+        </div>
+    </div>
+    
+</body>
+</html>

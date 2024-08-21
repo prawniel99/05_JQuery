@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<style>
+			body {
+				background-color: rgba(20,20,20,0.9);
+			}
+			
+			p {
+				color: yellow;
+				font-size: 2.0rem;
+			}
+			
+			.pp {
+				color: yellow;
+				font-size: 1.0rem;
+			}
+			
+			.btn {
+				width: 200px;
+				height: 66px;
+			}
+			
+			#pre1 {
+				color: white;
+			}
+		</style>
+	</head>
+	
+	<script type="text/javascript">
+		
+		// Audio 객체를 생성한다
+		const myAudio = new Audio();
+		// myAudio.setAttribute('src', '../multi/d2act0intro.mp3'); 이렇게 해도 되고,
+		myAudio.src='../multi/d2act0intro.mp3'; // 이렇게 해도 됨
+		
+		// 함수 선언
+		function btnPlay() {
+			myAudio.play();
+		}
+
+		function btnPause() {
+			myAudio.pause();
+		}
+		
+		function btnStop() {
+			myAudio.pause();
+			myAudio.currentTime = 0;
+		}
+	</script>
+	
+	<body>
+		<pre id="pre1">
+			autoplay가 안되는 이유
+			무작위 광고와 자동새생 미디어 때문에 사용자 환경이 안좋아지기 때문
+			
+			구글에서 2018년 Autoplaya Policy를 정의했다
+			
+			동일 origin 도메인 내에서 유저 인터렉션 이벤트 발생시 자동 재생이 가능하다
+		</pre>
+		
+		<img src="../images/d2.jpg" alt="d2.jpg">
+		<audio src="../multi/d2act0intro.mp3" autoplay controls></audio>
+		<hr color="red">
+		
+		<p>Audio 객체를 생성하여 실행한다</p>
+		<p class="pp">각 버튼의 기능을 부여하기 위해서 script가 필요하다</p>
+		<p class="pp">각 버튼에서 onclick="함수호출()"</p>
+		<input type="button" id="btnplay" class="btn" value="재생버튼" onclick="btnPlay()">
+		<input type="button" id="btnpause" class="btn" value="일시정지버튼" onclick="btnPause()">
+		<input type="button" id="btnstop" class="btn" value="정지버튼" onclick="btnStop()">
+	</body>
+</html>

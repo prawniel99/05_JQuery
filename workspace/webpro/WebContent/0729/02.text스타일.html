@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<style>
+			div {
+			  width: 80%;
+			  height: 300px;
+			  border: 1px solid orange;
+			  margin: 10px;
+			  padding: 10px;			  
+			}
+			#d1 {
+			  letter-spacing: 20px;
+			  text-indent: 100px;
+			}
+			#d2 {
+			  
+			}
+			
+			#f1 {
+			  /* offset-x offset-y blur color*/
+			  text-shadow: 20px 10px 3px rgba(170,80,50,1);
+			}
+			#f2:hover {
+			  text-shadow: 1px 1px;
+			}
+			#f3:hover {
+			  text-shadow: 356px 0px 0px grey;
+			  /*css 속성 변경시 애니메이션 속도를 조절하는 방법을 제공
+			    즉시 영향을 미치게 하는 대신, 일정 시간에 걸쳐 일어나도록 한다 */
+			  /*property duration timing-function delay*/
+			  transition: all 1s ease-in 0s;
+			  /*transition timing-function
+			  ease: 느리게 시작, 빨라졌다 느려지면서 종료
+			  linear: 일정한 속도
+			  ease-in: 느리게 시작, 일정한 속도 도달 후 빠르게 종료
+			  ease-out: 일정한 속도 시작, 점점 느려지며 종료
+			  ease-in-out: 느리게 시작하면서 점점 느려지면서 종료*/
+			}
+			#f4 {
+			
+			}
+			
+			#d4:hover {
+			  height: 70px;
+			  font-size: 4.0rem;
+			  color: red;
+			  transition: font-size 1s ease-in;
+			}
+			
+			#d5:hover {
+			  height: 70px;
+			  font-size: 4.0rem;
+			  color: red;
+			  transition: all 0.6s linear;
+			}
+			
+			#p1 {
+			  text-transform: uppercase;
+			}
+			
+			#p2 {
+			  text-transform: lowercase;
+			}
+			
+			#p3 {
+			  text-transform: capitalize;
+			}
+			
+			textarea {
+			  direction: rtl;
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+		<textarea rows="5" cols="30"></textarea>
+		<br>
+	
+		<div id="d1">
+		무궁화꽃이피었습니다무궁화꽃이피었습니다  
+		무궁화꽃이피었습니다무궁화꽃이피었습니다  
+		무궁화꽃이피었습니다무궁화꽃이피었습니다  
+		무궁화꽃이피었습니다무궁화꽃이피었습니다  
+		무궁화꽃이피었습니다무궁화꽃이피었습니다  
+		무궁화꽃이피었습니다무궁화꽃이피었습니다  
+		무궁화꽃이피었습니다무궁화꽃이피었습니다  
+		무궁화꽃이피었습니다무궁화꽃이피었습니다  
+		무궁화꽃이피었습니다무궁화꽃이피었습니다  
+		</div>
+		
+		<div id="d2">
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		</div>
+		
+		<div id="d3">
+		<h1 id='f1'>무궁화 꽃이 피었습니다</h1>  
+		<h1 id='f2'>무궁화 꽃이 피었습니다</h1>  
+		<h1 id='f3'>▦ ▦ ▦ ▦ ▦ ▦ ▦ ▦ ▦ ▦ ▦</h1>  
+		<h1 id='f4'>무궁화 꽃이 피었습니다</h1>  
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		무궁화 꽃이 피었습니다 무궁화 꽃이 피었습니다  
+		</div>
+		
+		<div id="d4">무궁화 꽃이 피었습니다</div>
+		<div id="d5">무궁화 꽃이 피었습니다</div>
+		<div id="d6">무궁화 꽃이 피었습니다</div>
+		
+		happy new year
+		<p id="p1">Happy New Year</p>
+		<p id="p2">Happy New Year</p>
+		<p id="p3">Happy New Year</p>
+		
+	</body>
+</html>

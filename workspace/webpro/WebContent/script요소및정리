@@ -1,0 +1,62 @@
+*******---html요소 찾기---*********
+
+
+-- id를 이용한 요소 찾기
+window.document
+window 는 최상위 객체. 그 아래 내장되어져 있는 document 객체.
+window 생략 가능
+var a = document.getElementById('id이름'); 구형
+let a = document.querySelector('#id이름'); 신형
+
+
+-- class를 이용한 요소 찾기
+var b1 = document.getElementsByClassName('class이름')[0] // 첫번째 요소만 검색
+var b2 = document.getElementsByClassName('class이름')
+let b3 = document.querySelector('.class이름'); // 첫번째 요소만 검색
+let b4 = document.querySelectorAll('.class이름');
+
+
+-- tag 이름을 이용한 요소 찾기
+const c1 = document.getElementsByTagName('tag이름');
+const c2 = document.querySelectAll('tag이름');
+
+6이전 버전에서는 var만 있었지만, let과 const가 새로 나옴.
+queryselector도 추가된 것.
+
+
+*******---html요소 값 가져오기---*********
+a.value - input 요소의 입력값, textarea, select/option
+a.innerHTML / a.innerText   -- div, p, ul/li, pk/li, span, pre
+tr/td
+
+*******---html요소 값 출력하기---*********
+a.value = 값 - input 요소의 입력값, textarea, select/option
+a.innerHTML = 값 / a.innerText = 값 -- div, p, ul/li, pk/li, span, pre
+tr/td
+
+
+*******--- html 변수 선언 ---*********
+var: 같은 이름이 중복되어 선언 가능 - scope(사용가능 범위)는 함수영억
+let: 같은 이름 중복선언 불가능 / 값 변경은 가능 - scope는 블럭영역(함수도 블럭이다)
+const: 중복선언, 값변경 둘 다 불가능 - scope는 블럭영역
+
+
+
+
+ES6
+  let/const
+  querySelector('#id이름')
+  document.querySelectorAll('.class이름')
+  템플릿리터럴
+  화살표함수
+  함수선언식 function aa() { } 
+  함수표현식 [const/var/let] aa = function() { }
+  화살표함수 const aa = () => { } // 이걸 제일 많이 씀. 대부분.
+
+  fruits.forEach(function(item, index){ })
+  fruits.forEach((item, index)=>{ })
+  window.onload = () => { }
+
+  함수 나머지 매개변수 Rest Parameter
+  펼침연산자
+  class - 원본 function // 근본은 function 이라는 말이다

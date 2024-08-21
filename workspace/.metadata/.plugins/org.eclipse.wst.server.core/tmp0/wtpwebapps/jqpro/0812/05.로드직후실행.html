@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+    
+    <script>
+        // 그냥 바로 실행 안됨!
+        $('#btn1').on('click', function() {
+            
+        })
+
+        // 윈도우 로드 직후 실행 3종세트
+        // 1번
+        // window.onload = () => {
+        //     $('#btn1').on('click', function() {
+        //     })
+        // }
+        window.onload = function() {
+            $('#btn1').on('click', function() {
+            })
+        }
+        // 2번
+        // $(document).ready( = () => {
+        //     $('#btn1').on('click', function() {
+        //     })
+        // })
+        $(() => {
+            $('#btn1').on('click', () => {
+                // 랜덤 발생
+                cr = parseInt(Math.random() * 256);
+                cg = parseInt(Math.random() * 256);
+                cb = parseInt(Math.random() * 256);
+
+                // result1의 배경색 변경
+                $('#result1').css('background', `rgb(${cr}, ${cg}, ${cb})`);
+            })
+        })
+        // 3번
+        $(function() {
+            // $('#btn1').on('click', function() {
+            $('#btn1').on('click', () => {
+            })
+        })
+        // $(function() {
+        //     // $('#btn1').on('click', function() {
+        //     $('#btn1').on('click', () => {
+        //     })
+        // })
+    </script>
+    
+</head>
+<body>
+    <div class="box">
+        <h1>
+        	1. id를 이용해서, 클릭 이벤트 핸들러 설정<br>
+            버튼을 클릭할 때 마다 result1의 배경색을 변경한다
+        </h1>
+        <input type="button" value="confirm" id="btn1">
+        <div id="result1"></div>
+    </div>
+</body>
+</html>

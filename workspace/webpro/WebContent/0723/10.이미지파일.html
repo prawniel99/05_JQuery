@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>이미지 파일</title>
+		
+		<style>
+			img {
+				width: 500px;
+			}
+			
+			#btncol {
+				width: 100%;
+				height: 20%;
+			}
+		</style>
+	</head>
+	
+	<script type="text/javascript">
+		function backgroundChange() {
+			// 부모창 접근
+			// window
+			// window.parent
+			// window.parent.document
+			// window.parent.document.getElementById
+			// vparent = window.parent
+			// vdoc = vparent.document
+			// but = vdoc.getElementById('버튼의id') 이런식으로 변수 지정 하면서 여러줄로도 가능
+			
+			// 부모창 id=btnimg 접근
+			btn = window.parent.document.getElementById('btnimg');
+			
+			// 랜덤 색상 만들기 Math.random()*256 이거는 똑같은데 int double 이런거 따로 없음
+			vr = Math.floor(Math.random()*255+1);
+			vg = Math.floor(Math.random()*255+1);
+			vb = Math.floor(Math.random()*255+1);
+			
+			// btn버튼의 배경색을 변경 - script 내부에서 요소의 스타일을 변경
+			// 스크립트에서는 background 뒤에 : 아니고 =
+			// btn.style.background='rgb(vr,vg,vb)'; 이렇게 하면 변수를 따옴표안에 넣으면 안되서 안됨
+			btn.style.background='rgb('+vr+','+vg+','+vb+')';
+		}
+	</script>
+	
+	<body>
+		<img src="../images/cat-jump.png" alt="cat-jump.png" id="img1">
+		<br>
+		<!-- 부모창의 버튼 색상 변경 -->
+		<input type="button" id="btncol" value="색상변경" onclick="backgroundChange()">
+	</body>
+</html>

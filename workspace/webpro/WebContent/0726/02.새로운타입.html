@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>새로운 타입</title>
+		
+		<script>
+			function colorChange() {
+				// id=col인 요소 접근 - 값을 가져온다
+				let vcolor = document.getElementById('col').value;
+				
+				// form요소 접근
+				let vform = document.getElementsByTagName('form')[0]; // form이 여러개일 경우 collection이 됨. 제일 마지막에 [0] 해서 첫번째걸로 정함
+				
+				// form요소의 배경색 변경
+				vform.style.background = vcolor;
+			}
+		</script>
+	</head>
+	
+	<body>
+		<pre>
+요소의 pattern - 정규식 이용
+[0-9], [0-9]+, [0-9]+, [0-9]{3}, [0-9]{3, 5}, \d{3}, \d\d\d 숫자
+[a-z] 소문자
+[A-z] 대문자
+[가-힣] 한글
+\. 모든것
+		</pre>
+	
+		<form action="새로운.jsp" method="post">
+			<input type="text" name="id" required value="a001" readonly autofocus placeholder="id입력"><br>
+			
+			<label for="email">이메일</label>
+			<input type="email" id="email" name="email" placeholder="이메일입력"><br>
+			
+			<label for="tel">전화번호</label>
+			<input type="text" id="tel" name="tel" pattern="[0-9]{3}-\d{4}-\d\d\d\d" placeholder="(000-0000-0000)" title="010-1234-5678"><br>
+			
+			<label for="qty">수량</label>
+			<input type="number" id="qty" name="qty" min="100" max="10000" value="1000" step="100"> <br>
+			
+			<label for=col>색상</label> change 이벤트 설정
+			<input type="color" id="col" name="col" onchange="colorChange()"><br>
+			
+			<input type="submit">
+		</form>
+	</body>
+</html>

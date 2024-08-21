@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body * {
+          box-sizing: border-box;
+        }
+        /* body {
+          min-width: 800px;
+        } */
+        ul {
+          border: 1px solid blue;
+        }
+        li {
+          border: 1px dotted green;
+          margin: 2px;
+          padding: 3px;
+        }
+        #u2 { /*ul#u2도 가능*/
+          border: 10px inset red;
+          border-left: none;
+          border-right: none;
+          background: rgba(255, 255, 0, 0.558);
+          list-style-type: none;
+          height: 80px;
+          margin-left: 10%;
+          margin-right: 10%;
+        }
+        #u2 li {
+          border: none;
+          float: left;
+          width: 22.5%;
+          margin-top: 24px;
+        }
+        #u2 a {
+          text-decoration: none; /*하이퍼링크 밑줄 없애기!!!*/
+          letter-spacing: 15px;
+          text-transform: uppercase;
+        }
+        a:link {
+          color: hotpink;
+        }
+        a:visited {
+          color: blueviolet;
+        }
+        a:hover {
+          color: red;
+        }
+        a:active{
+          color: blue;
+          font-size: 1.5rem;
+        }
+
+        @media (max-width: 800px) {
+          #u2 {
+            height: 240px;
+          }
+          #u2 li {
+            display: block;
+            width: 90%;
+          }
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Project</a></li>
+        <li><a href="#">notice</a></li>
+        <li><a href="#">QNA</a></li>
+    </ul>
+    
+    <hr>
+    
+    <ul id="u2">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Project</a></li>
+        <li><a href="#">notice</a></li>
+        <li><a href="#">QNA</a></li>
+    </ul>
+</body>
+</html>

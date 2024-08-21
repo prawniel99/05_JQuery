@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<link rel="stylesheet" href="../css/public.css">
+		
+		<style>
+			div {
+				border: 1px dotted orange;
+				padding: 20px;
+			}
+			
+			p	{
+				border: 1px dashed grey;
+				padding: 10px;
+				height: 20px;
+			}
+		</style>
+		
+		<script>
+			function proc1() {
+				// 입력한 값을 가져온다
+				// 가격 요소를 id를 이용해서 검색
+				let price = document.getElementById('price');
+				
+				// 수량 검색
+				let qty = document.getElementById('qty');
+				
+				// 각 요소의 값을 가져온다 - 결과는 문자형 - 문자형 덧셈만 빼고 연산 가능 - 덧셈은 정수형으로 바꾸고 하기
+				let pvalue = price.value;
+				let qvalue = qty.value;
+				
+				value = pvalue * qvalue;
+				
+				// 출력하기
+				//window.alert(value); // 임시
+				//console.log(value); // 콘솔창에 기록 남기기
+				//document.write(value); // 오홍 이거 신기하다. 이건 안쓰는 기능.
+				
+				let out = document.getElementById('result');
+				out.innerHTML = value;
+			}
+		</script>
+	</head>
+	
+	<body>
+		<pre>
+			일반버튼 = 기능이 없는 버튼
+			기능을 부여하기 위해서 onclick="p1()"; 이런식으로 함수를 호출 해줘야 한다.
+			&lt;input type="button" value="계산" onclick="proc1()">
+			&lt;button type="button" onclick="proc1()">버튼&lt;/button>
+		</pre>
+		
+		<form>
+			가격 <input id="price" type="number" value="2500" min="1000" max="10000" step="500"> <br>
+			수량 <input id="qty" type="number" value="1" min="1" max="30" step="1"> <br>
+			<br>
+			<input type="button" value="계산" onclick="proc1()">
+			<button type="button" onclick="proc1()">버튼</button>
+		</form>
+		
+		<br>
+		<br>
+		
+		<div>
+			<h1>출력결과</h1>
+			<p id="result"></p>
+		</div>
+	</body>
+</html>

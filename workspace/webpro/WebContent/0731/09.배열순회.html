@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+
+    <script>
+        const fruits = ["사과", "바나나", "참외", "수박"];
+        // window.onload = function() {
+        window.onload = () => {
+            let out1 = document.getElementById('result1');
+            let out2 = document.getElementById('result2');
+            let out3 = document.getElementById('result3');
+            let out4 = document.getElementById('result4');
+            let out5 = document.getElementById('result5');
+            // 1번. 배열이름을 이용해서 출력
+            out1.innerText = fruits;
+
+            str="";
+            // 2번 - for
+            for(let i=0; i<fruits.length; i++) {
+                str += `${fruits[i]} <br>`;
+            }
+            out2.innerHTML = str;
+            
+            // 3번 배열. forEach(function(item,index) { }) // 이거 자주 쓸 것.
+            str=""; 
+            fruits.forEach(function(item, index) {
+                // str += index + "번째" + itme + "<br>"
+                str += `${index}번째 ${item} <br>`;
+            })
+            out3.innerHTML = str;
+            
+            str="";
+            // 4번 for-in
+            for(let x in fruits) { // x변수는 인덱스
+                str += `${x}번째 ${fruits[x]} <br>`;
+            }
+            out4.innerHTML = str;
+            
+            str="";
+            for(let item of fruits) {
+                str += `${item} <br>`;
+            }
+            out5.innerHTML = str;
+        }
+    </script>
+
+    <style>
+        div {
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: 2px solid green;
+            margin: 10px;
+            padding: 10px;
+            width: 50%;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <pre>
+        템플릿 리터럴 - 백틱을 이용한 문자열 문자열. 물결 말고 ```` 이거 ` 이거 ` 이게 백틱.
+        변수와 문자가 한 문장에서 반복으로 나타날때 간단하게 쓰고자 함.
+        str += gugu+" * "+i+" = "+(gugu*i)+"<br>"; 이게 아니고
+        str += gugu+" * "+i+" = "+(gugu*i)+ "&tl;br>"; 이렇게.
+
+        `${변수} 문자 ${변수} 문자`
+        `${gugu} * ${i} = ${gugu*i} &lt;br>`;
+        이렇게 쓸 수 있다.
+    </pre>
+
+    <h3>출력1 - 배열 이름 사용해서 출력</h3>
+    <div id="result1"></div>
+
+    <h3>출력2 - for 사용</h3>
+    <div id="result2"></div>
+    
+    <h3>출력3 - forEach 사용</h3>
+    <div id="result3"></div>
+    
+    <h3>출력4 - for in 사용</h3>
+    <div id="result4"></div>
+    
+    <h3>출력5 - for of 사용 (자바의 향상된for문)</h3>
+    <div id="result5"></div>
+</body>
+</html>

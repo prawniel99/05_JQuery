@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <style>
+        
+    </style>
+
+    <script>
+        $(function(){
+            $('#btn1').on('click', function(){
+                // 필터
+                $('p:eq(0)').css('color', 'red');
+                // 메소드
+                $('p').eq(1).css('color', 'blue');
+                
+                // 필터
+                $('p:even').css('background', 'red');
+                // 메소드
+                $('p').even().css('font-size', '20px');
+                
+                // 필터
+                $('p:last').css('border', '3px solid red');
+                // 메소드
+                $('p').last().css('border', '3px solid blue');
+
+                // 필터
+                $('p').filter(':last').css('color', 'purple');
+                $('p').filter(':even').css('color', 'white');
+
+                // not
+                $('p').not('.pp').css('padding', '10px');
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+
+        <input type="button" value="confirm" id="btn1">
+
+        <div id="result1"></div>
+        <p>무궁화 꽃이 피었습니다1</p>
+        <p class="pp">무궁화 꽃이 피었습니다2</p>
+        <p>무궁화 꽃이 피었습니다3</p>
+        <p class="pp">무궁화 꽃이 피었습니다4</p>
+        <p>무궁화 꽃이 피었습니다5</p>
+        <p>무궁화 꽃이 피었습니다6</p>
+        <p class="pp">무궁화 꽃이 피었습니다7</p>
+        <p>무궁화 꽃이 피었습니다8</p>
+        <p>무궁화 꽃이 피었습니다9</p>
+        <p class="pp">무궁화 꽃이 피었습니다10</p>
+    </div>
+
+</body>
+
+</html>

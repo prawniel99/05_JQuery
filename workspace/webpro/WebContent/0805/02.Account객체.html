@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        class Account {
+            constructor() {
+                this.abalance = 0;
+            }
+            get balance() {
+                return this.abalance;
+            }
+            set balance(newBalance) {
+                this.abalance = newBalance;
+            }
+        }
+
+        proc1 = () => {
+            const account = new Account();
+            account.balance = 1000; // setter수행 // 자바에서는 account.setBalance(1000);
+            aa = account.balance; // getter수행 // account.getBalance(); 형식이 아니다.
+            let str = `금액: ${aa}원 <br>`;
+            document.getElementById('result1').innerHTML = str;
+        }
+    </script>
+
+    <style>
+        input[type=button]:hover {
+            box-shadow: 100px 100px 0px 100px skyblue;
+        }
+        div[id=result1] {
+            border: 1px dotted red;
+            margin: 10px;
+            padding: 10px;
+            font-size: 1.3rem;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="confirm" onclick="proc1()"> 
+    <div id="result1"></div>
+</body>
+</html>

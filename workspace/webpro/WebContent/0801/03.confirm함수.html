@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://192.168.146.76/webpro/css/public.css">
+    <!-- <link rel="stylesheet" href="http://localhost/webpro/css/public.css"> -->
+    
+    <script type="text/javascript">
+        let str = "";
+        const proc1 = () => {
+            while(true) {
+                // 구구단 입력 - prompt - 5   이거 window.prompt 인거
+                let gugu = prompt("구구단 입력");
+                str += `***${gugu}단***<br>`;
+                
+                for(let i=1; i<=9; i++) {
+                    str += `${gugu} * ${i} = ${gugu*i} <br>`;
+                }
+                // 출력
+                document.querySelector('#result').innerHTML = str;
+                
+                // 계속할래? - confirm()
+                // 취소 버튼 눌렀는지 - false 인지 비교 while 문 종료
+                let yn = confirm("계속 할래?");
+                if(!yn) break;
+            } // while
+        } // proc1()
+
+    	window.onload = () => {
+            /*
+            // 이벤트 부여할 버튼 검색
+    		let objbtn = document.querySelector('#btn1');
+    		// objbtn.addEventListener('click', function() {내용을 직접 기술})
+            objbtn.addEventListener('click', proc1);
+            */
+            document.querySelector('#btn1').addEventListener('click', proc1);
+    	}
+    </script>
+</head>
+
+<body>
+    <pre>
+        confirm() 함수는 사용자와 묻고 대답하기를 실행하는 함수는
+        확인: true를 리턴
+        취소: false를 리턴
+        
+        이벤트 핸들러 작성
+    	
+    	1. 태그에서 직접 onclick 으로
+    	&lt;input type="button" value="확인" onclick="proc1()">
+    	
+    	2. script에서 설정하는 방법
+    	버튼객체 = id=btn1 인 요소를 찾는다 -> document.blahblah 
+    	버튼객체이름.addEventListener('이벤트이름', 실행할함수)
+
+        바로 자동 저장 됨?
+    </pre>
+    
+    <input type="button" value="확인" id="btn1">
+    <br><br>
+    <div id="result"></div>
+</body>
+</html>

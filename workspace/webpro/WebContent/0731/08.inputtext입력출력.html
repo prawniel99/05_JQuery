@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        #out {
+            display: none;
+            margin: 20px;
+            padding: 40px;
+            border: 2px solid green;
+            text-align: center;
+        }
+        #btn1 {
+            text-align: center;
+        }
+    </style>
+            
+    <script>
+        // function calc() {       }
+        const calc = function() {
+            // 입력한 값 가져오기
+            let su1 = parseInt(document.getElementById('su1').value);
+            let su2 = parseInt(document.querySelector('#su2').value);
+            let res = su1+su2;
+
+            // 출력
+            document.getElementById('result').value = res;
+            document.getElementById('out').style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+    <h3>입력하세요</h3>
+    첫번째 수: <input type="text" id="su1"><br><br>
+    두번째 수: <input type="text" id="su2"><br><br>
+    
+    <input type="button" value="확인" onclick="calc()" id="btn1">
+    <br><br>
+
+    <div id="out">
+        <h3>출력</h3>
+        <input type="text" id="result" value="읭">
+    </div>
+</body>
+</html>

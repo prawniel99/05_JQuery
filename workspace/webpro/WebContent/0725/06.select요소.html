@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<script>
+		
+		</script>
+	</head>
+	
+	<body>
+		<form action="select요소.jsp" method="post">
+			이름: <input type="text" name="name"> <br>
+			
+			할일: (하나만 선택)
+			<select name="todo1">
+				<option>수업시간에 깨어있기</option>
+				<option>오류 해결하기</option>
+				<option>저녁메뉴 생각하기</option>
+				<option selected="selected">과제 하기</option>
+				<option>저녁 배그</option>
+			</select>
+			
+			<br><br>
+			
+			할일: (여러개 선택)
+			<select name="todo2" multiple="multiple" size=5>
+				<option selected="selected">수업시간에 깨어있기</option>
+				<option>오류 해결하기</option>
+				<option>저녁메뉴 생각하기</option>
+				<option>과제 하기</option>
+				<option selected>저녁 배그</option>
+			</select>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="../images/check.png">
+
+    <style>
+
+    </style>
+
+    <script>
+        // 빈객체를 생성 - 나중에 필요에 따라 속성과 메소드를 동적으로 추가할 수 있다.
+        const rect = { };
+
+        // 출력용. 03번에서 가져온거.
+        printRect = (out) => {
+            // rect 정보 출력
+            let str = "";
+            str += `이름: ${rect.name} <br>`;
+            str += `가로: ${rect.garo} <br>`;
+            str += `세로: ${rect.sero} <br>`;
+            str += `면적: ${rect.getArea()} <br>`;
+
+            document.querySelector(out).innerHTML = str;
+        }
+        
+        // 속성추가 사용
+        proc1 = () => {
+            rect.garo = 2; // 이렇게 그냥 쭉 치는게 동적으로 추가하는것.
+            rect.sero = 5;
+            rect.name = "사각형";
+        
+    
+            // 메소드를 추가 사용
+            rect.getArea = function() {
+                return this.garo * this.sero;
+            }
+            
+            // 출력
+            printRect('#result1');
+        }
+    </script>
+</head>
+
+<body>
+    <h2>const rect = {} <br> 객체에 동적으로 속성이나 메소드를 추가 사용 가능</h2>
+    <h3>rect객체 정보 출력하기</h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <br>
+    <div id="result1"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<link rel="stylesheet" href="../css/public.css">
+		
+		<style>
+			iframe {
+				width: 1000px;
+				height: 700px;
+				margin: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<pre>
+			iframe: 현재 파일속에 다른 파일을 포함
+			iframe의 name속성을 이용하여 a태그의 target으로 설정한다
+		</pre>
+		<a href="./1.리스트OL.html" target="ifr">리스트OL</a>
+		<a href="../0722/2.머리말태그.html" target="ifr">머리말태그</a>
+		
+		<br><br>
+		<iframe name="ifr" src="6.테이블병합연습.html" title="아이프레임"></iframe>
+	</body>
+</html>
