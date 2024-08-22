@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <style>
+        .ancestors * { 
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+        .box .ancestors div{
+            border: 2px solid skyblue;
+        }
+    </style>
+
+    <script>
+        $(()=>{
+            $('.btn').on('click', function(){ // btn이 3개고, 1개를 선택하려면 this를 써야해서, 화살표 함수 대신 일반 함수 사용함.
+                // 버튼을 기준으로 조상을 찾는다
+                // vp = $(this).parent();
+                // $(vp).find('span').css({'background': 'rgb(244,244,244)', });
+                // 한줄로 만들기
+                $(this).parent().find('span').css({'background': 'yellow', 'color': 'black'});
+                // $(선택한 그 객체).의 직속부모 선택.의 자녀 중 span 태그 선택.해서 css 변경하기;
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 버튼 클릭시 현재 그룹의 span 태그를 찾는다<br>
+            parents('조상지정') / find('후손지정')
+        </h1>
+
+        <input type="button" value="confirm" onclick="proc1()">
+
+        <div id="result1"> (the ancestor)
+
+            <div id="result1" class="ancestors">div (great-great-grandparent)
+                <div style="width:500px;">div (great-grandparent)
+                    <ul>ul (grandparent)
+                        <li>li (direct parent)
+                            <span>span</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="result1" class="ancestors">div (great-great-grandparent)
+                <div style="width:500px;">div (great-grandparent)
+                    <ul>ul (grandparent)
+                        <li>li (direct parent)
+                            <span>span</span>
+                        </li>
+                    </ul>
+
+                    <input type="button" value="confirm" class="btn">
+                    
+                </div>
+            </div>
+
+            <div id="result1" class="ancestors">div (great-great-grandparent)
+                <div style="width:500px;">div (great-grandparent)
+                    <ul>ul (grandparent)
+                        <li>li (direct parent)
+                            <span>span</span>
+                        </li>
+                    </ul>
+
+                    <input type="button" value="confirm" class="btn">
+                    
+                </div>
+            </div>
+        
+        </div>
+
+    </div>
+
+</body>
+
+</html>

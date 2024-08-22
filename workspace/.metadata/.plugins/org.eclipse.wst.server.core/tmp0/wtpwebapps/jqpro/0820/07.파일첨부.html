@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <style>
+        p {
+            margin: 0;
+        }
+    </style>
+
+    <script>
+        $(()=>{
+            count = 0;
+            $('#add').on('click', function(){
+                count++;
+                newele = $(`<p class="pp">파일 <input type="file">
+                            <input type="button"
+                             value="delete${count}"
+                             class="del"></p>`);
+                $('#result1').append(newele);
+            })
+
+            // 삭제하기
+            $(document).on('click', '.del', function(){
+                $(this).parent().remove();
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 추가버튼 add는 bind 또는 delegate 방식으로 이벤트 핸들러 작성 가능
+        </h1>
+        이름 <input type="text"><br>
+        첨부 파일 <input type="file">
+        <input type="button" value="add" id="add"><br>
+
+        <div id="result1"></div>
+    </div>
+
+</body>
+
+</html>

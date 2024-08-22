@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <style>
+
+        #result1 {
+            height: 280px;
+        }
+        
+        table {
+            border: 5px groove lightgreen;
+        }
+
+        td {
+            width: 200px;
+            height: 50px;
+            text-align: center;
+        }
+
+        th {
+            height: 50px;
+        }
+        
+        #result2 ul{
+            list-style: none;
+        }
+    </style>
+    
+    <script>
+    	
+        // const 해도 되고 안해도 되는데, 나중에 더 큰 작업들을 위해서는, 미리미리 습관 들이는게 좋다.
+        const proc1 = () => {
+
+            $('#result1').css('background-color', 'white');
+
+            $('li').css('color', 'black');
+            $('li:first, li:last').css('background', 'yellow');
+            $('li:lt(4)').css('font-weight', 'bold').css('font-size', '30px');
+            $('li:eq(5)').css('background', 'red');
+
+        }
+
+        const proc2 = () => {
+            $('tr:odd').css('background', 'lightblue').css('color', 'black');
+            $('tr:even').css('background', 'lightgrey').css('color', 'black');
+            // $('tr:first').css('background', 'black').css('color', 'white');
+            $('tr:first').css({'background': 'black', 'color': 'white'});
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h1>
+        	1. 
+        </h1>
+
+        <input type="button" value="confirm" onclick="proc1()">
+
+        <div id="result1">
+
+            <ul>
+                <li>one</li>
+                <li>two</li>
+                <li>three</li>
+                <li>four</li>
+                <li>five</li>
+                <li>six</li>
+                <li>seven</li>
+                <li>eight</li>
+                <li>nine</li>
+            </ul>
+
+
+
+
+        </div>
+
+    </div>
+
+
+    <div class="box">
+
+        <h1>
+        	1. 
+        </h1>
+
+        <input type="button" value="confirm" onclick="proc2()">
+
+        <div id="result2">
+            <table border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                </tr>
+
+                <tr>
+                    <td>three</td>
+                    <td>four</td>
+                </tr>
+
+                <tr>
+                    <td>three</td>
+                    <td>four</td>
+                </tr>
+
+                <tr>
+                    <td>three</td>
+                    <td>four</td>
+                </tr>
+
+                <tr>
+                    <td>three</td>
+                    <td>four</td>
+                </tr>
+
+                <tr>
+                    <td>three</td>
+                    <td>four</td>
+                </tr>
+            </table>
+                
+        </div>
+
+    </div>
+
+</body>
+
+</html>

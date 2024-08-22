@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <style>
+        .siblings * { 
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+        .start {
+            color: black;
+        }
+    </style>
+
+    <script>
+        $(function(){
+            // prev
+            $('#btn1').on('click', function(){
+                $('#result1 .start').prev().css({
+                    'color': 'red',
+                    'border': '2px solid red'
+                })
+            })
+            // prevAll
+            $('#btn2').on('click', function(){
+                $('#result1 .start').prevAll().css({
+                    'color': 'blue',
+                    'border': '2px solid blue'
+                })
+            })
+            // prevUntil(필터방식)
+            $('#btn3').on('click', function(){
+                $('#result1 .start').prevUntil('#result1 li:first').css({
+                    'color': 'yellow',
+                    'border': '2px solid yellow'
+                })
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+
+        <input type="button" value="prev" id="btn1">
+        <input type="button" value="prevAll" id="btn2">
+        <input type="button" value="prevUntil" id="btn3">
+
+        <div id="result1">
+            <div style="width:500px;" class="siblings">
+                <ul>ul (parent)  
+                    <li>li (sibling)</li>
+                    <li>li (sibling)</li>
+                    <li class="start">li (sibling with class name "start")</li>
+                    <li>li (the next sibling of li with class name "start")</li>
+                    <li>li (sibling)</li>
+                    <li>li (sibling)</li>
+                    <li>li (sibling)</li>
+                    <li>li (sibling)</li>
+                </ul>   
+              </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

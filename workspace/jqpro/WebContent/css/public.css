@@ -3,8 +3,6 @@
 body {
 	background-color: black;
 	color: rgb(233, 233, 233);
-	/* background: url(../images/fhd-sky.jpg); */
-	/* padding: 10px; */
 }
 
 pre {
@@ -28,16 +26,16 @@ h3 {
 }
 
 div {
-	border: 2px dotted grey;
+	border: 2px solid grey;
 	padding: 10px;
-	margin: 10px;
+	/* margin: 10px; */
 }
 
 .box {
 	border: none;
 	/* background-image: linear-gradient(rgba(255,155,155), rgba(155,255,155)); */
 	background-color: rgb(88, 88, 88);
-	margin: 10px;
+	/* margin: 10px; */
 	/* padding: 20px; */
 }
 

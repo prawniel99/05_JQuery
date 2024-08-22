@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <style>
+        #res {
+        }
+    </style>
+
+    <script>
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+
+        <input type="button" value="text">
+        <input type="button" value="jsonarr">
+        <input type="button" value="jsonobj">
+        <input type="button" value="jsonmix">
+        
+        <br>
+
+		<div id="res">
+	        <div id="result1"></div>
+	        <div id="result2"></div>
+	        <div id="result3"></div>
+	        <div id="result4"></div>
+		</div>
+    </div>
+
+</body>
+
+</html>

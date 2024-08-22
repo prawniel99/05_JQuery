@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+    
+    <script>
+        $(document).ready( () => {
+            $('#btn1').on('click', () => {
+                res1 = document.getElementById('result1');
+                // res1.style.background = "pink";
+
+                // res1.css('background', 'red');
+                // 이렇게 안됨. res1은 dom 객체고, 뒤는 jquery라서 안됨.
+                // res1.css is not a function 이라는 오류가 남
+                // res1: dom객체변수
+                // css: jquery메소드
+
+                // 변수 이름에는 따옴표 안붙임
+                // dom 객체변수 res1을 jquery변수로 변환. $()
+                // $(res1).style.background = 'cyan'; // 이것도 오류남
+                $(res1).css('background', 'cyan'); // 이렇게 가야한다
+                
+                
+                
+            })
+        })
+    	
+
+
+    </script>
+
+    
+</head>
+
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+        <input type="button" value="confirm" id="btn1">
+        <div id="result1"></div>
+    </div>
+
+</body>
+
+</html>

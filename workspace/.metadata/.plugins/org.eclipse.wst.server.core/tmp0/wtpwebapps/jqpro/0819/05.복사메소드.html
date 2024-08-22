@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <style>
+        
+    </style>
+
+    <script>
+        $(function(){
+            $('.pp').on('click', function(){
+                $(this).css('font-size', '+=5px');
+                // this.style.fontSize = '5px';
+            })
+
+            // 버튼을 클릭하면 첫번째 p태그를 복사
+            $('#p1').on('click', function(){
+                vp1 = $('#first').clone(); // 복사본은 이벤트가 실행되지 않는다
+                $(vp1).appendTo($('#result1'));
+            })
+
+            $('#p2').on('click', function(){
+                $('#second').clone(true).appendTo($('#result2')); // 복사본도 이벤트가 실행된다
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+
+        <input type="button" value="clone" id="p1">
+        <input type="button" value="clonetrue" id="p2">
+
+        <p id="first" class="pp">무궁화 꽃이 피었습니다</p>
+        <p id="second" class="pp">무궁화 꽃이 피었습니다</p>
+
+        <div id="result1"></div>
+        <div id="result2"></div>
+    </div>
+
+</body>
+
+</html>

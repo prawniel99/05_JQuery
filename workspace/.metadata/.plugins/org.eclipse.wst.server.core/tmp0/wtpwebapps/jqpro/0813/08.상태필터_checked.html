@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <script>
+        $(function() {
+            $('#btn1').on('click', function() {
+                // 방법1: 속성선택
+                // $('input[type=checkbox]:checked')
+                // $('input[type=checkbox]:checked').value 이렇게 하면 안됨. jqeury랑 srcipt를 한 문장안에 혼합 불가능
+                // $('input[type=checkbox]:checked').val() 이렇게 하면 됨
+                // 방법2: 폼양식 선택
+                // alert($(':checkbox:checked').val());
+                // 이렇게 하면 checked 된 애들 중 가장 앞에 있는 1개만 나옴.
+
+                // 여러개를 하려면 반복문 사용. 아래 두개 중 하나
+                // $.each($(':checkbox:checked'), function(){})
+                // $(':checkbox:checked').each(function(i,v){})
+                str = "";
+                $(':checkbox:checked').each(function(i,v){
+                    // $(':checkbox:checked eq(i)') // 이것도 되고
+                    // $(v) // 이것도 됨
+                    // $(this) // 이것도 됨
+                    // 가장 많이 쓰는건 this!
+                    str += $(this).val()+"<br>";
+                })
+                $('#out').html(str);
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+
+        <input type="button" value="confirm" id="btn1">
+
+        <div id="result1">
+            <form>
+                취 미 :
+                <input type="checkbox" name="hobby" value="여행" checked>여행
+                <input type="checkbox" name="hobby" value="장기">장기
+                <input type="checkbox" name="hobby" value="바둑">바둑
+                <input type="checkbox" name="hobby" value="독서" >독서
+                <input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+            </form>
+        </div>
+
+        <div id="out">
+
+        </div>
+    </div>
+
+</body>
+
+</html>

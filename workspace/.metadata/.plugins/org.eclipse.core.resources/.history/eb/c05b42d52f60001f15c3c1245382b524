@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <style>
+        #res {
+        	display: flex;
+        	flex-direction: row;
+        }
+        
+        .item {
+            flex: 25%;
+            margin: 3px;
+            padding: 2px;
+        }
+    </style>
+
+    <script>
+
+        const xhr = new XMLHttpRequest();
+        console.log(xhr);
+        
+        $(()=>{
+
+            $('#text').on('click', function(){
+
+                // 요청
+                xhr.open('get', 'text.jsp', true);
+                xhr.send();
+
+                // 응답
+                xhr.onload = function(){
+                    if(xhr.readyState == 4 && xhr.status == 200){
+                        res = xhr.responseText; // json형식의 text문자열
+                        // res = 홍길동/개나리/진달래/무궁화/수선화/라일락
+                        
+                        // 배열로 만들기. 가져온 res 직렬 텍스트를 / 기준으로 잘라서
+                        arr = res.split("/");
+                        
+                        // 출력 형식 만들기
+                        code = "<ul>";
+                        for(item of arr){
+                        	code += "<li>"+item+"</li>";
+                        }
+                        code += "</ul>";
+                        
+                        // 출력
+                        $('#result1').html(code);
+                    }
+                }
+            }) // #text click 끝
+            
+            $('#jarr').on('click', function(){
+            	xhr.open('get', 'jarr.jsp', true);
+                xhr.send();
+
+                xhr.onload = function(){
+                    if(xhr.readyState == 4 && xhr.status == 200){
+                    	res = this.responseText;
+                        // res = ["홍길동", "개나리", "진달래", "수선화", "백장미", "코스모스"] // 이거랑 같은거
+
+                        jres = JSON.parse(res); // 텍스트 기반의 json 배열 데이터를 script 객체로 변환한다 = 역직렬화. 직렬화는 stringify, gson은 toJSON from JSON.
+                        code = "<ol>";
+                        for(a of jres){
+                            code += `<li>${a}</li>`;
+                        }
+                        code += "</ol>";
+
+                        $('#result2').html(code);
+                        
+                    }
+                }
+            }) // #jarr click 끝
+
+
+
+        })
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+
+        <input type="button" value="text" id="text" title="id">
+        <input type="button" value="jsonarr" id="jarr" title="jarr">
+        <input type="button" value="jsonobj" id="jobj" title="jobj">
+        <input type="button" value="jsonmix" id="jmix" title="jmix">
+        
+        <br>
+
+		<div id="res">
+	        <div class="item" id="result1"></div>
+	        <div class="item" id="result2"></div>
+	        <div class="item" id="result3"></div>
+	        <div class="item" id="result4"></div>
+		</div>
+    </div>
+
+</body>
+
+</html>

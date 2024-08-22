@@ -3,7 +3,6 @@
 body {
 	background-color: black;
 	color: rgb(233, 233, 233);
-	/* background: url(../images/fhd-sky.jpg); */
 }
 
 pre {
@@ -16,32 +15,37 @@ pre {
 	background: rgb(222,222,222);
 }
 
+h1 {
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
 h3 {
-	margin: 0;
+	margin: 10px;
 	margin-bottom: 10px;
+}
+
+div {
+	border: 2px solid grey;
+	padding: 10px;
+	/* margin: 10px; */
 }
 
 .box {
 	border: none;
 	/* background-image: linear-gradient(rgba(255,155,155), rgba(155,255,155)); */
 	background-color: rgb(88, 88, 88);
-	margin: 10px;
-	padding: 10px;
+	/* margin: 10px; */
+	/* padding: 20px; */
 }
 
 .box input[type=button] {
-	/* margin: 12px 4px 0; */
+	margin: 10px;
 	background: rgb(40,40,40);
 	color: rgb(233, 233, 233);
-	font-size: 10px;
-	padding: 0;
-	width: 60px;
-	height: 26px;
-	border-radius: 10px;
-}
-
-.box div {
-	border: 2px dotted grey;
-	padding: 10px;
-	margin: 5px;
+	font-size: 14px;
+	/* padding: 0; */
+	width: 100px;
+	height: 30px;
+	/* border-radius: 10px; */
 }

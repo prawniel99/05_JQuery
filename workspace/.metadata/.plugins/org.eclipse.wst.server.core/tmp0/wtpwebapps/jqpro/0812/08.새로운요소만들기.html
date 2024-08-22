@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    
+
+    <script>
+
+
+        arr = ["Divo", "G650 Landaulet", "Phantom Platino", "Range Rover", "Escalade V", "Spectre", "Gemera", "Picanto", "911 Dakar"];
+
+    	proc1 = () => {
+
+
+            // 랜덤 발생
+            rand = parseInt(Math.random() * arr.length);
+
+
+            // 문자열 선택 arr[rand]
+
+            // p태그 생성
+            // 한줄로 다 주는 방법.
+            // ptag = $(`<p class="pp" onclick="ppProc(this)">${arr[rand]}</p>`);
+            // 한줄로 말고 properties 따로 주는 방법.
+            // ptag = $('<p></p>', { //<p/> 이렇게 더 짧게 줄일 수 있음.
+            ptag = $('<p/>', { 
+
+                'class' : 'pp2',
+                'text' : arr[rand],
+                'click' : ppProc2 // 참조형식. 내부함수에서 this를 자동으로 넘겨받음. this 안줘도 됨.
+                // 호출이 아니고 참조다 위에 ppProc2는. 호출이 아니라서 괄호열고 매개변수 못 줌.
+            });
+
+            $('#result1').append(ptag);
+
+            // 스크립트로 하면 매우 길게 써야하는데, 이렇게 짧게 가능
+
+
+        }
+
+        function ppProc2() {
+            // 호출이 아니고 참조형식인 이거는, this를 자동으로 받아와서 그냥 바로 가능.
+            // this.style.background = 'green';
+            $(this).css('background', 'green');
+        }
+
+
+        // ppProc 이걸 만드는데,
+        // 위에 만들려면
+        // const ppProc = () => { } // 이렇게 해야하고
+        // 아래 만들려면
+        // function ppProc() { } // 이렇게 한다
+        // 그리고 p가 여러개니까, 위에 ptag에서 ppProc(this)로 선택해서 파라미터로 보내준다
+        function ppProc(pele) {
+            
+            // pele변수는 dom객체변수
+            // java script 방식
+            pele.style.background = 'rgb(30,30,30)';
+            // jquery 방식
+            $(pele).css('background', 'red');
+            
+        }
+
+
+    </script>
+
+
+    
+</head>
+
+
+
+
+
+
+
+<body>
+
+
+
+    <div class="box">
+        <h1>
+        	1. result1에 p태그를 추가한다<br>
+            랜덤으로 문자열 발생, 
+        </h1>
+        <input type="button" value="confirm" onclick="proc1()">
+        <div id="result1"></div>
+    </div>
+
+
+
+</body>
+
+
+
+</html>
