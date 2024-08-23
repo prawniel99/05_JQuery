@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+    
+
+    <script>
+        $(()=>{
+            $('#text').on('click', ()=>{
+                fetch('text.jsp')
+                .then(res=>{
+                    console.log(res);
+                    if(res.ok){
+                        return res.text(); // JSON 하려면 parse랑 뭐 이런거 해야함
+                    } else {
+                        throw new Error("오류 발생");
+                    }
+                })
+                .then(data=>{
+                    // data = 홍길..
+                    arr = data.split("/");
+                    //출력
+                    let code = "<ul>";
+                    $.each(arr, (i, v)=>{
+                        code += `<li>${v}</li>`;
+                    })
+                    code += "</ul>";
+                    $('#result1').html(code);
+                })
+            }) // text 끝
+
+
+            $('#jarr').on('click', ()=>{
+                fetch('jarr.jsp')
+                .then(res=>{
+                    console.log(res);
+                    if(res.ok){
+                        return res.json();
+                    } else {
+                        throw new Error('오류 발생');
+                    }
+                })
+                .then(data=>{
+                    let code = "<ol>";
+                    for(const user of data){
+                        code += `<li>${user}</li>`;
+                    }
+                    code += "</ol>";
+                    $('#result2').html(code);
+                })
+            })
+
+
+            $('#jobj').on('click', ()=>{
+                fetch('jobj.jsp')
+                .then(res=>{
+                    if(!res.ok){
+                        throw new Error(`오류 발생: ${res.statusText}`);
+                    }
+                    return res.json();
+                })
+                /* .then(data=>{
+                    data.name data.addr data.tel
+                }) */
+                .then(()=>{
+                    // 출력 모양
+                    // name addr tel
+                    // result3에 출력
+                    let code = "";
+                    code += res.name;
+                    $('#resut3').html(code);
+                })
+            })
+
+            $('#jmix').on('click', ()=>{
+                fetch('jmix.jsp')
+                .then(res=>{
+                    if(!res.ok){
+                        throw new Error(`오류 발생: ${res.statusText}`);
+                    }
+                    return res.json();
+                })
+                $.each(res)
+            })
+        })
+    </script>
+    
+</head>
+<body>
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+
+        <input type="button" value="text" id="text" title="id">
+        <input type="button" value="jsonarr" id="jarr" title="jarr">
+        <input type="button" value="jsonobj" id="jobj" title="jobj">
+        <input type="button" value="jsonmix" id="jmix" title="jmix">
+        
+        <br>
+
+		<div id="res">
+	        <div class="item" id="result1"></div>
+	        <div class="item" id="result2"></div>
+	        <div class="item" id="result3"></div>
+	        <div class="item" id="result4"></div>
+		</div>
+    </div>
+</body>
+</html>

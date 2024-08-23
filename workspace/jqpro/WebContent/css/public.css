@@ -49,3 +49,15 @@ div {
 	height: 30px;
 	/* border-radius: 10px; */
 }
+
+
+#res {
+	display: flex;
+	flex-direction: row;
+}
+
+.item {
+	flex: 25%;
+	margin: 3px;
+	padding: 2px;
+}

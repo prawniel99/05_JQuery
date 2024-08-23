@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://localhost/webpro/css/public.css"> <!--WebContent는 포함 안된다고 한다-->
+</head>
+<body>
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+        <input type="button" value="confirm" onclick="proc1()">
+        <div id="result1"></div>
+    </div>
+</body>
+</html>
