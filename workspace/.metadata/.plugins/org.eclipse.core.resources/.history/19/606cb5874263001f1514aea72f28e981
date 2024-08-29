@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%-- comment --%>
+
+<%
+	
+	request.setCharacterEncoding("UTF-8");
+
+	// recieve transmitted data
+	String userName = request.getParameter("name");
+	String userId = request.getParameter("id");
+	String userEmail = request.getParameter("email");
+
+	// connect to DB to CRUD
+	
+	// create response data according to the result
+	
+%>
+
+<%-- when using JSON, we need double quotation, not single --%>
+
+{
+
+	"name": "<%= userName %>",
+	"id": "<%= userId %>",
+	"email": "<%= userEmail %>" <%-- email doesn't work, mail works. why? SOLVED. --%>
+
+}

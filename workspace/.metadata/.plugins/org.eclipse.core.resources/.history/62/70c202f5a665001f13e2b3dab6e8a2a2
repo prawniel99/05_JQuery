@@ -1,0 +1,38 @@
+package kr.or.ddit.member.dao;
+
+import java.util.List;
+
+import kr.or.ddit.member.vo.MemberVO;
+
+public class MemberDaoImpl implements IMemberDao {
+	
+	// mapper 수행을 위한 SqlSession
+	private SqlSession sql;
+	
+	// 생성자
+	private MemberDaoImpl() { } // new MemberDaoImpl 못하게 하는 용도
+	
+	// 싱글톤
+	private static IMemberDao dao;
+
+	// public static IMemberDao getInstance() {}
+	public static IMemberDao getDao() {
+		if(dao==null) dao = new MemberDaoImpl();
+		
+		return dao;
+	}
+
+	@Override
+	public List<MemberVO> selectAllMember() {
+		
+		return null;
+	}
+
+}
+
+
+
+
+
+
+

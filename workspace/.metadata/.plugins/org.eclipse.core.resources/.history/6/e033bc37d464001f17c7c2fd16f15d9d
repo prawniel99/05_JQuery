@@ -1,0 +1,46 @@
+<%@page import="kr.or.ddit.lprod.vo.LprodVO"%>
+<%@page import="com.google.gson.Gson"%>
+<%@page import="java.io.BufferedReader"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%
+
+	// Receive transfered data
+	// two different methods
+	// 1. parameter
+	// 2. reader
+	StringBuffer strbuf = new StringBuffer();
+	String line = null;
+	
+	try{
+		BufferedReader reader = request.getReader();
+		while(true){
+			line = reader.readLine();
+			if(line==null) break;
+			strbuf.append(line);
+		}
+		
+	}catch(Exception e){
+		e.printStackTrace();
+	}
+	
+	String reqData = strbuf.toString();
+	// deserialize, transform to js object
+	// - a js object that has lprod_gu property - LprodVO
+	Gson gson = new Gson();
+	LprodVO vo = gson.fromJson(reqData, LprodVO.class);
+	// vo.setLprod_gu("P101"); // this is auto-executed
+
+	// get SqlSession
+	SqlSession sql = Mybati
+	
+	// execute sql - get the result value
+	
+	// save into request 
+	
+	// move to view page with the resut value.
+	// not carrying the value, but to get the values from request.
+	
+
+%>

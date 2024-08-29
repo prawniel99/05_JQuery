@@ -1,0 +1,19 @@
+1724636723181	Move 'gson-2.11.0.jar' to 'lib'
+1724641366417	Rename package 'kr.or.ddit.ibatis.config'
+1724641376215	Rename package 'kr.or.ddit.ibatis.mappers'
+1724641707034	Rename type 'MemberVo'
+1724642619783	Delete element
+1724718848079	Rename field 'MEM_ID'
+1724718864348	Rename field 'MEM_PASS'
+1724718871634	Rename field 'MEM_NAME'
+1724718890984	Rename field 'MEM_BIR'
+1724718897411	Rename field 'MEM_ZIP'
+1724718910885	Rename local variable 'mEM_ID'
+1724723415979	Copy file
+1724814471681	Copy files
+1724814694948	Copy file
+1724814811035	Copy file
+1724814892150	Copy file
+1724890466810	Copy files
+1724899219049	Move compilation unit
+1724899273326	Delete element

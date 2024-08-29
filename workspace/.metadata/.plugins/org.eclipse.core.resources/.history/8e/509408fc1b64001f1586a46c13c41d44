@@ -1,0 +1,16 @@
+<%@page import="org.apache.ibatis.session.SqlSession"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+    
+<%
+
+	// get the transferred data
+	
+	
+	// get SqlSession using MyBatisUtil to execute the sql query from mapper file
+	SqlSession sql = Myb
+
+
+
+%>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 이 문서는 MyBatis에서 처리할 SQL문을 작성하는 문서입니다 -->
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace속성: 이 문서에 작성된 SQL문을 호출해서 사용할 때 같이 사용되는 이름이다 -->
+<mapper namespace="lprod">
+
+	<!-- 
+		
+		이 영역에는 처리할 SQL문에 맍는 태그를 사용해서 SQL문을 작성한다.
+		사용할 수 있는 태그들
+		<select>select 구문 ~~ </select>
+		<insert>insert 구문 ~~ </insert>
+		<delete>delete 구문 ~~ </delete>
+		<update>update 구문 ~~ </update>
+		
+		기타 동적 쿼리용 태그들
+		
+	-->
+	
+	<!-- 
+		
+		id 속성 ==> 실행할 태그를 java소스에서 호출할 때 사용되는 이름으로 <mapper>태그의 namespace 속성과 연결해서 사용한다.
+		           (예: "lprod.insertLprod")
+
+		parameterType 속성 ==> 작성된 SQL문에 사용될 데이터가 저장된 객체를 기술한다.
+		                       (보통 VO클래스, Java의 기본자료형이름, Map객체 등이 사용된다.)
+		                       (VO클래스 등을 기술할 때는 해당 클래스의 전체 이름을 기술해야 한다.
+				                그런데 <typeAlias>태그에 지정한 alias명을 사용할 수 있다.)
+	-->
+	
+	<!-- 물음표(?)가 들어가면 parameterType을 해줘야한다 -->
+	
+	
+	<!--
+		parameterType에 설정되는 값이 단일값이면 SQL문에 이 값을 나타내는 변수는 특별히 이름이 정해지지 않았다.
+		(즉, 사용자가 임의로 지정할 수 있다.)
+		(그래도 왠만하면 이름 매칭 해주는게 좋다.)
+
+	<!--
+		resutType 속성 ==> SELECT문을 처리한 결과를 저장할 VO클래스나 Java의 기본자료형 이름,
+		                   Map객체를 지정한다.
+		SELECT문을 처리한 결과가 여러개의 레코드이면 Java에서 'selectList()' 메소드를 이용하여 호출한다.
+		그러면 검색된 데이터를 자동으로 List에 담아서 반환한다. 그래서 결과가 여러개일 경우에도
+		이 속성에 지정하는 것은 1개의 레코드가 저장될 클래스나 자료형 이름을 지정하면 된다.
+	-->
+	<select id="getAllLprod" resultType="lprodVo">
+		select * from lprod
+	</select>
+	
+	<select id="getLprod" parameterType="String" resultType="lprodVo">
+		select * from lprod where lprod_gu = #{lprod_gu}
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+</mapper>

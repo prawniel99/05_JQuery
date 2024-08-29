@@ -1,0 +1,15 @@
+package kr.or.ddit.prod.vo;
+
+public class ProdVO {
+
+	prod_id;
+	prod_name;
+	prod_lgu;
+	prod_buyer;
+	prod_cost;
+	prod_price;
+	prod_sale;
+	prod_outline;
+	prod_size;
+	prod_color;
+}

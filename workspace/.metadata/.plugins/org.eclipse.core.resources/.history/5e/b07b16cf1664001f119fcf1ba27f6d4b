@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 이 문서는 MyBatis에서 처리할 SQL문을 작성하는 문서입니다 -->
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace속성: 이 문서에 작성된 SQL문을 호출해서 사용할 때 같이 사용되는 이름이다 -->
+<mapper namespace="lprod">
+
+	<select id="getAllLprod" resultType="lprodVo">
+		select * from lprod
+	</select>
+	
+	<select id="getLprod" parameterType="String" resultType="lprodVo">
+		select * from lprod where lprod_gu = #{lprod_gu}
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+</mapper>

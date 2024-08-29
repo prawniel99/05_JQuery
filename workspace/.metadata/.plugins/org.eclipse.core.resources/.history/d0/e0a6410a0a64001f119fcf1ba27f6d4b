@@ -1,0 +1,31 @@
+<%@page import="kr.or.ddit.member.vo.MemberVO"%>
+<%@page import="java.util.List"%>
+<%@page import="kr.or.ddit.mybatis.config.MybatisUtil"%>
+<%@page import="org.apache.ibatis.session.SqlSession"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+    
+<%
+
+	// 여기는 controller 파일이다 - java파일로 생성해야한다 - Servlet, Spring 등으로. MVC패턴에서.
+	// 우리는 여기서 controller 흉내만 낼거다.
+	
+	// 전송데이터 받기
+	
+	// SqlSession객체를 얻는다 - mapper파일의 sql문을 실행하기 위해서
+	SqlSession sql = MybatisUtil.getSqlSession();
+	
+	// mapper를 실행한다 - select문 실행 - 결과가 생성됨 - List
+	List<MemberVO> list = sql.selectList("member.selectAllMember");
+
+	// List 결과물을 이용해서 응답데이터를 생성 또는 출력 - view 페이지에서
+	// Save into request
+	request.setAttribute("abcde", list);
+
+	// List 결과물을 view페이지로 넘겨주는 (공유하는) 알고리즘이 필요 - forward
+	RequestDispatcher disp = request.getRequestDispatcher("name of the view page");
+	disp.forward(request, response);
+	
+
+%>

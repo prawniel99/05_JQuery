@@ -1,0 +1,15 @@
+package kr.or.ddit.prod.vo;
+
+public class ProdVO {
+
+	private String prod_id;
+	private String prod_name;
+	private String prod_lgu;
+	private String prod_buyer;
+	private int prod_cost;
+	private int prod_price;
+	private int prod_sale;
+	prod_outline;
+	prod_size;
+	prod_color;
+}

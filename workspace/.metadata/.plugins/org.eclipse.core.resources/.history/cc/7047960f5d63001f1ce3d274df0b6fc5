@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+    
+<%
+
+	// 여기는 controller 파일이다 - java파일로 생성해야한다 - Servlet, Spring 등으로. MVC패턴에서.
+	// 우리는 여기서 controller 흉내만 낼거다.
+	
+	// 전송데이터 받기
+	
+	// SqlSession객체를 얻는다 - mapper파일의 sql문을 실행하기 위해서
+
+%>

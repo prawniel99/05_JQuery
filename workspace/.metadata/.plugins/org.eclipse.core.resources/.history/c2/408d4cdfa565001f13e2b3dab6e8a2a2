@@ -1,0 +1,27 @@
+package kr.or.ddit.member.dao;
+
+import java.util.List;
+
+import kr.or.ddit.member.vo.MemberVO;
+
+public class MemberDaoImpl implements IMemberDao {
+	
+	// 싱글톤
+	private static IMemberDao dao;
+
+	public static IMemberDao 
+
+	@Override
+	public List<MemberVO> selectAllMember() {
+		
+		return null;
+	}
+
+}
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+package kr.or.ddit.seria.vo;
+
+public class SeriaVO {
+
+	private String id;
+	private String name;
+	private String email;
+}

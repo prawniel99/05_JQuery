@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.mybatis.config.MybatisUtil"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.member.service.IMemberService"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.member.service.MemberServiceImpl"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.member.vo.MemberVO"/>
+</qualifiedTypeNameHistroy>
