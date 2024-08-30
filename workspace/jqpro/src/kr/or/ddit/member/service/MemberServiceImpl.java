@@ -30,32 +30,31 @@ public class MemberServiceImpl implements IMemberService {
 	@Override
 	public List<MemberVO> selectAllMember() {
 		// 서비스 메소드 호출
+		
 		// 여러줄로 만들기
 		/*
 		List<MemberVO> list = null;
 		list = dao.selectAllMember();
 		return list;
 		*/
+		
 		// 한줄로 만들기
 		return dao.selectAllMember();
 	}
 
 	@Override
 	public String idCheck(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.idCheck(id);
 	}
 
 	@Override
 	public List<ZipVO> selectByDong(String dong) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.selectByDong(dong);
 	}
 
 	@Override
 	public int insertMember(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.insertMember(vo);
 	}
 
 }

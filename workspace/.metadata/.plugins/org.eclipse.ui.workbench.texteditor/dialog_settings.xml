@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="name"/>
+		<item key="selection" value="ziptr"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="ziptr"/>
+			<item value=", "/>
+			<item value="mem"/>
+			<item value="m"/>
 			<item value="name"/>
 			<item value="titleSpan"/>
 			<item value="요소의 pattern - 정규식 이용"/>
@@ -15,6 +19,9 @@
 			<item value="&quot;cc&quot;"/>
 		</list>
 		<list key="replacehistory">
+			<item value="}, "/>
+			<item value="#{mem"/>
+			<item value="#{m"/>
 			<item value="hp"/>
 			<item value="add2"/>
 			<item value="add1"/>
