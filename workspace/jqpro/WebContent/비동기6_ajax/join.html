@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="../images/favicon-java-color.png" type="image/png">
     
     <!-- <link rel="stylesheet" href="../css/public.css"> -->
     <script src="../js/jquery-3.7.1.js"></script>
+    <script src="../js/jquery.serializejson.min.js"></script>
     
     <!-- bootstrap -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,7 +71,8 @@
 				dongvalue = $('#dong').val().trim();
 				
 				if(dongvalue.length<1) {
-					alert("동 이름을 입력하세요");
+					// alert("동 이름을 입력하세요");
+					console.log("동 이름을 입력하세요");
 					return;
 				}
 				$.ajax({
@@ -79,7 +82,7 @@
 					// data : JSON.stringify({dong : dongvalue}), // reader로 읽기 // post에서는 이렇게도 가능. post만 가능.
 					// 뒤에 dong 써놓은게 key 같은거다. servlet에서 이걸로 뒤에 dongvalue를 가져가는거.
 					success : function(res){
-						console.log(res);
+						// console.log(res);
 						
 						//code = "<table class='table table-hover'>";
 						code = "<table>";
@@ -118,8 +121,53 @@
 			}) // 우편번호 검색 끝
 			// 우편번호 찾기 결과에서 하나를 클릭하면
 			$(document).on('click', '.ziptr', function(){
-				$('this td:eq(0)')
+				// $('this td:eq(0)')
+				// 선택한 행에서 우편번호와 주소를 가져오기
+				zcode = $('td:eq(0)', this).text().trim();
+				addr = $('td:eq(1)', this).text().trim();
+				
+				// 본문에 출력하기
+				$('#zip').val(zcode);
+				$('#add1').val(addr);
+				
+				// 출력창 데이터 지우기. 두가지 방법이 있음.
+				$('#dong').val("");
+				$('#result').empty();
+				
+				
+				// 모달창 닫기
+				$('#myModal').modal('hide');
 			})
+			
+			// 가입 전송버튼 클릭
+			$('#send').on('click', function(){
+				// 입력한 모든 값을 가져온다 - val()
+				/* $('#id').val()
+				$('#name')*/
+				fdata1 = $('#ff').serialize();
+				fdata2 = $('#ff').serializeArray();
+				
+				console.log(fdata1);
+				console.log(fdata2);
+				
+				fdata3 = $('#ff').serializeJSON();
+				console.log(fdata3);
+				
+				$.ajax({
+					url : '/jqpro/insertMember.do', // 앞에 /로 시작하지 않으면 '현재폴더에서' 가 됨. 잘 기억할 것.
+					data : JSON.stringify(fdata3), // script 객체를 json 형식의 문자열로 직렬화
+					contentType : 'application/json',
+					type : 'post',
+					success : (res)=>{
+						// alert(res.flag);
+						$('#joinspan').html(res.flag).css('color', 'red');
+					},
+					error : (xhr)=>{
+						alert("오류: "+xhr.status);
+					},
+					dataType : 'json' // res json 형식의 문자열 - scipr객체로 역직렬화
+				})
+			}) // 가입 전송버튼 끝
 		})
 	</script>
 
@@ -134,7 +182,7 @@
 
 		<div class="container mt-3">
 			<h2>회원가입</h2>
-			<form>
+			<form id="ff">
 				<div class="mb-3 mt-3">
 					<label for="id">아이디:</label>
 					<input type="button" value="중복검사" id="idcheck"  class="btn btn-success btn-sm">
@@ -165,7 +213,7 @@
 				
 				<div class="mb-3">
 					<label for="pass">비밀번호:</label>
-					<input type="password" class="form-control" id="pass" placeholder="Enter pass" name="pass">
+					<input type="password" class="form-control" id="pass" placeholder="Enter pass" name="mem_pass">
 				</div>
 				
 				<div class="mb-3 mt-3">
@@ -184,7 +232,7 @@
 					<input type="text" class="form-control" id="add2" placeholder="Enter add2" name="mem_add2"> <!-- name은 db와 일치시킨 VO와 일치시켜야 한다 -->
 				</div>
 				
-				<button type="button" class="btn btn-primary">가입</button>
+				<button type="button" class="btn btn-primary" id="send">가입</button>
 				<span id="joinspan"></span>
 			</form>
 		</div>
