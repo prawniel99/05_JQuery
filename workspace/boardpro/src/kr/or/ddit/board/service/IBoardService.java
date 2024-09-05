@@ -5,6 +5,7 @@ import java.util.Map;
 
 import kr.or.ddit.board.vo.BoardVO;
 import kr.or.ddit.board.vo.PageVO;
+import kr.or.ddit.board.vo.ReplyVO;
 
 public interface IBoardService {
 
@@ -33,11 +34,37 @@ public interface IBoardService {
 	// 조회수 증가
 	
 	// 댓글쓰기
+	public int insertReply(ReplyVO vo);
 	
 	// 댓글수정
 	
 	// 댓글삭제
 	
 	// 댓글리스트
+	public List<ReplyVO> selectByReply(int bonum);
+	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

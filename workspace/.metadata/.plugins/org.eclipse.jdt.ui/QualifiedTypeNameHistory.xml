@@ -12,14 +12,15 @@
     <fullyQualifiedTypeName name="kr.or.ddit.mybatis.config.MybatisUtil"/>
     <fullyQualifiedTypeName name="kr.or.ddit.board.dao.IBoardDao"/>
     <fullyQualifiedTypeName name="kr.or.ddit.board.dao.BoardDaoImpl"/>
-    <fullyQualifiedTypeName name="kr.or.ddit.board.controller.StreamData"/>
-    <fullyQualifiedTypeName name="com.google.gson.Gson"/>
     <fullyQualifiedTypeName name="kr.or.ddit.board.vo.PListVO"/>
-    <fullyQualifiedTypeName name="kr.or.ddit.board.service.IBoardService"/>
-    <fullyQualifiedTypeName name="kr.or.ddit.board.service.BoardServiceImpl"/>
     <fullyQualifiedTypeName name="kr.or.ddit.board.vo.PageVO"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="kr.or.ddit.board.vo.BoardVO"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.board.controller.StreamData"/>
+    <fullyQualifiedTypeName name="com.google.gson.Gson"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.board.service.IBoardService"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.board.service.BoardServiceImpl"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.board.vo.ReplyVO"/>
 </qualifiedTypeNameHistroy>

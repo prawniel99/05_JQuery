@@ -8,6 +8,7 @@ import kr.or.ddit.board.dao.BoardDaoImpl;
 import kr.or.ddit.board.dao.IBoardDao;
 import kr.or.ddit.board.vo.BoardVO;
 import kr.or.ddit.board.vo.PageVO;
+import kr.or.ddit.board.vo.ReplyVO;
 
 public class BoardServiceImpl implements IBoardService {
 	
@@ -82,5 +83,17 @@ public class BoardServiceImpl implements IBoardService {
 	public int countBoard(Map<String, Object> map) {
 		return dao.countBoard(map);
 	}
+
+	@Override
+	public int insertReply(ReplyVO vo) {
+		return dao.insertReply(vo);
+	}
+
+	@Override
+	public List<ReplyVO> selectByReply(int bonum) {
+		return dao.selectByReply(bonum);
+	}
+	
+	
 
 }

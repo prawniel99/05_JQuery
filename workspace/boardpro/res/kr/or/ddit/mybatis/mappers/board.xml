@@ -17,7 +17,7 @@
 
 	<!-- 전체 글 개수 - 조건에 따라 -->
 	<select id="countBoard" parameterType="map" resultType="int">
-		select count(*) from bardtab
+		select count(*) from boardtab
 		<include refid="dynamicCondition"/>
 	</select>
 
@@ -30,8 +30,8 @@
             <include refid="dynamicCondition"/>
               order by  num desc ) B
         <![CDATA[
-          where rownum <= #end#) A
-          where A.rnum >= #start#
+          where rownum <= #{end}) A
+          where A.rnum >= #{start}
         ]]>
     </select>
 

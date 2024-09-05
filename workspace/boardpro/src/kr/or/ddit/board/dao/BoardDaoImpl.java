@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import kr.or.ddit.board.vo.BoardVO;
+import kr.or.ddit.board.vo.ReplyVO;
 import kr.or.ddit.mybatis.config.MybatisUtil;
 
 public class BoardDaoImpl implements IBoardDao {
@@ -57,6 +58,7 @@ public class BoardDaoImpl implements IBoardDao {
 		return list;
 	}
 
+	// board.xml에서 게시글 개수 찾기
 	@Override
 	public int countBoard(Map<String, Object> map) {
 		// 1. 선언
@@ -67,6 +69,51 @@ public class BoardDaoImpl implements IBoardDao {
 		try {
 			sql = MybatisUtil.getSqlSession();
 			list = sql.selectOne("board.countBoard", map);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sql.commit();
+			sql.close();
+		}
+		
+		// 3. 리턴
+		return list;
+	}
+
+	// reply.xml에서 글 집어넣기
+	@Override
+	public int insertReply(ReplyVO vo) {
+		// 1. 선언
+		int list = 0;
+		SqlSession sql = null;
+		
+		// 2. 실행
+		try {
+			sql = MybatisUtil.getSqlSession();
+			list = sql.insert("reply.insertReply", vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sql.commit();
+			sql.close();
+		}
+		
+		// 3. 리턴
+		return list;
+	}
+
+	// reply.xml에서 댓글 전체 목록 가져오기
+	@Override
+	public List<ReplyVO> selectByReply(int bonum) {
+		
+		// 1. 선언
+		List<ReplyVO> list = null;
+		SqlSession sql = null;
+		
+		// 2. 실행
+		try {
+			sql = MybatisUtil.getSqlSession();
+			list = sql.selectList("reply.selectByReply", bonum);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
