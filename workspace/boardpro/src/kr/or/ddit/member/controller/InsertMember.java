@@ -49,7 +49,7 @@ public class InsertMember extends HttpServlet {
 		request.setAttribute("result", cnt);
 		
 		// view 페이지로 이동 - 응답데이터 생성
-		request.getRequestDispatcher("/비동기6_ajax/insert.jsp").forward(request, response);
+		request.getRequestDispatcher("/member/insert.jsp").forward(request, response);
 		
 
 	}

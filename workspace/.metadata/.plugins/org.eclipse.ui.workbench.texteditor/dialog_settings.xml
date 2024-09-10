@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="class=&quot;action&quot;"/>
+		<item key="selection" value="member"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="class=&quot;action&quot;"/>
-			<item value="cvont"/>
-			<item value="idx"/>
-			<item value="p2"/>
-			<item value="action"/>
-			<item value="&quot;"/>
-			<item value="pageno"/>
-			<item value="previous"/>
-			<item value="BoardList.do"/>
-			<item value="res"/>
-			<item value="accor"/>
-			<item value="insert"/>
-			<item value="insertmember"/>
-			<item value="ff"/>
-			<item value="ziptr"/>
+			<item value="비동기6_ajax"/>
+			<item value="jqpro"/>
+			<item value="rp3"/>
+			<item value="modiform"/>
+			<item value="modifyform"/>
+			<item value="textarea"/>
+			<item value="모달창에 입력"/>
+			<item value="#uwriter"/>
+			<item value="uwriter"/>
+			<item value="usend"/>
+			<item value="pagelist"/>
+			<item value="listPageServer"/>
+			<item value="pageinfo"/>
+			<item value="mynavbar"/>
+			<item value="send"/>
 		</list>
 		<list key="replacehistory">
+			<item value="member"/>
+			<item value="boardpro"/>
 			<item value="}, "/>
 			<item value="#{mem"/>
 			<item value="#{m"/>
@@ -38,8 +40,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="471"/>
-		<item key="DIALOG_Y_ORIGIN" value="106"/>
+		<item key="DIALOG_X_ORIGIN" value="259"/>
+		<item key="DIALOG_Y_ORIGIN" value="271"/>
 		<item key="DIALOG_WIDTH" value="288"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

@@ -26,19 +26,25 @@ public interface IBoardService {
 	public int countBoard(Map<String, Object> map);
 	
 	// 글쓰기
+	public int insertBoard(BoardVO vo);
 	
 	// 글삭제
+	public int deleteBoard(int num); // 번호 하나만 있으면 지울 수 있으니 int
 	
 	// 글수정
+	public int updateBoard(BoardVO vo); // 여러가지 값이 필요하니까 BoardVO
 	
 	// 조회수 증가
+	public int updateHit(int num); // 글 번호 하나만 있으면 가능하니까 int
 	
 	// 댓글쓰기
 	public int insertReply(ReplyVO vo);
 	
 	// 댓글수정
+	public int updateReply(ReplyVO vo); // 수정이나 작성은 전부 vo네.
 	
 	// 댓글삭제
+	public int deleteReply(int num); // 이것도 숫자 하나만 있으면 지울 수 있으니.
 	
 	// 댓글리스트
 	public List<ReplyVO> selectByReply(int bonum);

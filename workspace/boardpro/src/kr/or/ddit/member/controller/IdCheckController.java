@@ -43,7 +43,7 @@ public class IdCheckController extends HttpServlet {
 		request.setAttribute("id", resId);
 		
 		// view 페이지로 이동
-		request.getRequestDispatcher("/비동기6_ajax/idCheck.jsp").forward(request, response);
+		request.getRequestDispatcher("/member/idCheck.jsp").forward(request, response);
 		
 	}
 

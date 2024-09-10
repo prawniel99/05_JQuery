@@ -22,7 +22,7 @@
 	</select>
 
 	
-  <!-- 글 리스트 가져오기 - 조건여부에 따라 -->
+	<!-- 글 리스트 가져오기 - 조건여부에 따라 -->
     <select id="selectBoardList" parameterType="map" resultType="boardVO">
       select A.* from
         (select rownum as rnum , B.* from
@@ -36,12 +36,46 @@
     </select>
 
 
+	<!-- 글쓰기 저장 -->
+	<!-- 이거 values 안에 있는거 BoardVO.java 에서 가져오는거야 -->
+	<!-- parameterType은 config에 alias 쓰는건가? 이거 안쓸려면 그 앞에 있는 그 패키지경로 다 쓰고 클래스명 쓰는 그건가? -->
+	<insert id="insertBoard" parameterType="boardVO">
+		insert into boardtab
+		values(
+			boardtab_num_seq.nextval,
+			#{subject},
+			#{writer},
+			#{mail},
+			#{password},
+			#{content},
+			0,
+			#{wip},
+			sysdate
+		)
+	</insert>
+
+	
+	<!-- 게시글 조회수 증가 -->
+	<update id="updateHit" parameterType="boardVO">
+		update boardtab set hit = hit + 1 where num = #{data}
+	</update>
 
 
+	<!-- 게시글 삭제 --> <!-- 아 id를 dao랑 맞춰야한대! -->
+	<delete id="deleteBoard" parameterType="int">
+		delete from boardtab where num = #{data}
+	</delete>
 
 
-
-
+	<!-- 게시글 수정 -->
+	<update id="updateBoard" parameterType="boardVO">
+		update boardtab set
+			subject = #{subject},
+			mail = #{mail},
+			content = #{content},
+			password = #{password}
+		where num = #{num}
+	</update>
 
 
 

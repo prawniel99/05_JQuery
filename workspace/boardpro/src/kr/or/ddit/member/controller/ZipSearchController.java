@@ -43,7 +43,7 @@ public class ZipSearchController extends HttpServlet {
 		request.setAttribute("dong", list);
 		
 		// view 페이지로 이동
-		request.getRequestDispatcher("/비동기6_ajax/dongList.jsp").forward(request, response); // view 는 jsp로 하고있는거야 지금! 확장자가 view가 아니야!
+		request.getRequestDispatcher("/member/dongList.jsp").forward(request, response); // view 는 jsp로 하고있는거야 지금! 확장자가 view가 아니야!
 		
 	}
 }

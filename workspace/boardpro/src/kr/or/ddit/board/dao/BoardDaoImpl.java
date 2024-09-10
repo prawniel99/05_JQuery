@@ -125,4 +125,130 @@ public class BoardDaoImpl implements IBoardDao {
 		return list;
 	}
 
+	@Override
+	public int insertBoard(BoardVO vo) {
+		// 1. 선언
+		int cnt = 0;
+		SqlSession sql = null;
+		
+		// 2. 실행
+		try {
+			sql = MybatisUtil.getSqlSession();
+			cnt = sql.insert("board.insertBoard", vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sql.commit();
+			sql.close();
+		}
+		
+		// 3. 리턴
+		return cnt;
+	}
+
+	@Override
+	public int updateHit(int num) {
+		// 1. 선언
+		int cnt = 0;
+		SqlSession sql = null;
+		
+		// 2. 실행
+		try {
+			sql = MybatisUtil.getSqlSession();
+			cnt = sql.update("board.updateHit", num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sql.commit();
+			sql.close();
+		}
+		
+		// 3. 리턴
+		return cnt;
+	}
+
+	@Override
+	public int deleteBoard(int num) {
+		// 1. 선언
+		int cnt = 0;
+		SqlSession sql = null;
+		
+		// 2. 실행
+		try {
+			sql = MybatisUtil.getSqlSession();
+			cnt = sql.delete("board.deleteBoard", num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sql.commit();
+			sql.close();
+		}
+		
+		// 3. 리턴
+		return cnt;
+	}
+
+	@Override
+	public int updateBoard(BoardVO vo) {
+		// 1. 선언
+		int cnt = 0;
+		SqlSession sql = null;
+		
+		// 2. 실행
+		try {
+			sql = MybatisUtil.getSqlSession();
+			cnt = sql.update("board.updateBoard", vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sql.commit();
+			sql.close();
+		}
+		
+		// 3. 리턴
+		return cnt;
+	}
+
+	@Override
+	public int updateReply(ReplyVO vo) {
+		// 1. 선언
+		int cnt = 0;
+		SqlSession sql = null;
+		
+		// 2. 실행
+		try {
+			sql = MybatisUtil.getSqlSession();
+			cnt = sql.update("reply.updateReply", vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sql.commit();
+			sql.close();
+		}
+		
+		// 3. 리턴
+		return cnt;
+	}
+
+	@Override
+	public int deleteReply(int num) {
+		// 1. 선언
+		int cnt = 0;
+		SqlSession sql = null;
+		
+		// 2. 실행
+		try {
+			sql = MybatisUtil.getSqlSession();
+			cnt = sql.delete("reply.deleteReply", num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sql.commit();
+			sql.close();
+		}
+		
+		// 3. 리턴
+		return cnt;
+	}
+
 }

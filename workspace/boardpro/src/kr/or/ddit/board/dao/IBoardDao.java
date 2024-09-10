@@ -15,19 +15,25 @@ public interface IBoardDao {
 	public int countBoard(Map<String, Object> map);
 
 	// 글쓰기
+	public int insertBoard(BoardVO vo);
 	
 	// 글삭제
+	public int deleteBoard(int num);
 	
 	// 글수정
+	public int updateBoard(BoardVO vo); 
 	
 	// 조회수 증가
+	public int updateHit(int num);
 	
 	// 댓글쓰기
 	public int insertReply(ReplyVO vo);
 	
 	// 댓글수정
+	public int updateReply(ReplyVO vo);
 	
 	// 댓글삭제
+	public int deleteReply(int num);
 	
 	// 댓글리스트
 	public List<ReplyVO> selectByReply(int bonum);
