@@ -136,7 +136,7 @@
 		//자바스크립트 객체 빈걸로 만들 수 있고, 동적으로 속성 추가하여 변경되도록 할 수 있음
 		reply = {};
 		
-		uvo = <%= ss %>
+		uvo = <%= ss %> // 이거 객체 넣은거다. 문자열 넣은게 아니라. 아오. 위에 gson.toJson(vo); 해놨잖아...
 		currentPage = 1;
 		mypath = '<%=request.getContextPath()%>'; // 이렇게 mypath로 간단하게 만들어두고 해놓고 여기저기서 다 씀.
 		
@@ -345,8 +345,6 @@
 				
 				// js함수를 호출
 				$.replyUpdateServer();
-				
-				
 			})
 			
 			// 수정 모달창에서 전송 버튼 클릭하면. update니까 u 인거다
